@@ -8,7 +8,7 @@ O aplicativo é open source, totalmente gratuito e utiliza os serviços do webse
 
 #### Google Play Store
 
-[Em breve no Google Play Store]
+Aplicativo disponível no Google Play Store: [https://play.google.com/store/apps/details?id=com.omicroncep](https://play.google.com/store/apps/details?id=com.omicroncep)
 
 ### Omicron CEP Web (React)
 
