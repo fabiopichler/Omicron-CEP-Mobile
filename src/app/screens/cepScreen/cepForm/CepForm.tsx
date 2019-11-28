@@ -55,6 +55,7 @@ const CepForm: React.FC<ICepFormProps> = props => {
             <View style={styles.content}>
                 <TextInput
                     label="Insira um CEP para pesquisar"
+                    keyboardType="numeric"
                     returnKeyType="search"
                     theme={{
                         roundness: 0,
