@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 
 import { StyleSheet } from 'react-native';
-import { Card, Text, IconButton, Colors, Headline } from 'react-native-paper';
+import { Card, Text, IconButton, Colors, Headline, useTheme } from 'react-native-paper';
 
 import QuestionDialog from '../questionDialog/QuestionDialog';
 
@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
         color: '#777',
         fontSize: 14,
     },
-    textPrimary: {
-        color: Colors.teal600,
-    },
     closeButton: {
         position: 'absolute',
         right: 4,
@@ -50,6 +47,9 @@ const styles = StyleSheet.create({
 
 const AddressContent: React.FC<IAddressContentProps> = props => {
     const { title, address, addressDelete } = props;
+
+    const { colors } = useTheme();
+    const textPrimary = { color: colors.accent };
 
     return (
         <Card style={styles.root}>
@@ -113,7 +113,7 @@ const AddressContent: React.FC<IAddressContentProps> = props => {
                     
                     {' '}
 
-                    <Text style={[styles.body1, styles.textPrimary]}>
+                    <Text style={[styles.body1, textPrimary]}>
                         {address.logradouro}
                     </Text>
                 </Text>
@@ -125,7 +125,7 @@ const AddressContent: React.FC<IAddressContentProps> = props => {
                     
                     {' '}
 
-                    <Text style={[styles.body1, styles.textPrimary]}>
+                    <Text style={[styles.body1, textPrimary]}>
                         {address.cidade}
                     </Text>
                 </Text>
@@ -137,7 +137,7 @@ const AddressContent: React.FC<IAddressContentProps> = props => {
                     
                     {' '}
 
-                    <Text style={[styles.body1, styles.textPrimary]}>
+                    <Text style={[styles.body1, textPrimary]}>
                         {UfList[UfList.map(x => x[0]).indexOf(address.uf)][1]} ({address.uf})
                     </Text>
                 </Text>

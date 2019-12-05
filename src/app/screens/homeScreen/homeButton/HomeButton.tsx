@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
     },
     textTop: {
         marginBottom: 2,
-        lineHeight: 12,
-        fontSize: 12,
-        color: 'rgba(255,255,255,.7)',
+        lineHeight: 15,
+        fontSize: 13,
+        color: '#9cb',
     },
     text: {
         color: 'white',

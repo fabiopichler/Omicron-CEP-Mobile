@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { TextInput, IconButton, Colors } from 'react-native-paper';
+import { TextInput, IconButton, useTheme } from 'react-native-paper';
 
 import { CepFormContainer } from './CepFormContainer';
 import { ICepFormProps } from './ICepFormProps';
@@ -9,7 +9,6 @@ import { Status } from '../../../../models/Status';
 
 const styles = StyleSheet.create({
     root: {
-        backgroundColor: Colors.teal600,
         paddingHorizontal: 16,
         elevation: 4,
     },
@@ -19,7 +18,6 @@ const styles = StyleSheet.create({
     },
     textInput: {
         flexGrow: 1,
-        backgroundColor: Colors.teal500,
     },
     iconButton: {
         position: 'absolute',
@@ -29,6 +27,8 @@ const styles = StyleSheet.create({
 
 const CepForm: React.FC<ICepFormProps> = props => {
     const { cepState: { status }, checkCep, setCurrentSearch } = props;
+
+    const { colors } = useTheme();
 
     const [cep, setCep] = React.useState('');
     const [focus, setFocus] = React.useState(false);
@@ -51,7 +51,7 @@ const CepForm: React.FC<ICepFormProps> = props => {
     };
 
     return (
-        <View style={styles.root}>
+        <View style={[styles.root, { backgroundColor: colors.primary }]}>
             <View style={styles.content}>
                 <TextInput
                     label="Insira um CEP para pesquisar"
@@ -63,6 +63,7 @@ const CepForm: React.FC<ICepFormProps> = props => {
                             primary: 'rgba(0,0,0,.6)',
                             text: focus ? 'black' : 'white',
                             placeholder: 'rgba(255,255,255,.9)',
+                            background: colors.accent
                         }
                     }}
                     underlineColor="rgba(255,255,255,.9)"

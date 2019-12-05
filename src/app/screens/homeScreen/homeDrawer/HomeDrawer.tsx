@@ -2,7 +2,7 @@ import React from 'react';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
 import { View, ScrollView, StatusBar, StyleSheet, Text, Platform, Animated } from 'react-native';
-import { Title, Colors } from 'react-native-paper';
+import { Title } from 'react-native-paper';
 
 import MenuList from '@/app/components/menuList/MenuList';
 import Logo from '@/assets/images/logo.svg';
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         height: 200,
         marginBottom: 8,
         paddingTop: StatusBar.currentHeight,
-        backgroundColor: Colors.teal800,
+        backgroundColor: '#007254',
     },
     drawerHeaderContent: {
         flexGrow: 1,

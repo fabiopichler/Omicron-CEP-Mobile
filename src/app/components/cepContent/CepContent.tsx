@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 
 import { StyleSheet } from 'react-native';
-import { Card, Text, Headline, IconButton, Colors } from 'react-native-paper';
+import { Card, Text, Headline, IconButton, Colors, useTheme } from 'react-native-paper';
 
 import QuestionDialog from '../questionDialog/QuestionDialog';
 
@@ -33,9 +33,6 @@ const styles = StyleSheet.create({
         color: '#777',
         fontSize: 14,
     },
-    textPrimary: {
-        color: Colors.teal600,
-    },
     closeButton: {
         position: 'absolute',
         right: 4,
@@ -46,6 +43,9 @@ const styles = StyleSheet.create({
 
 const CepContent: React.FC<ICepContentProps> = props => {
     const { cep, hideDate, onCepDelete } = props;
+
+    const { colors } = useTheme();
+    const textPrimary = { color: colors.accent };
 
     return (
         <Card style={styles.root}>
@@ -71,7 +71,7 @@ const CepContent: React.FC<ICepContentProps> = props => {
             ) : null}
 
             <Card.Content style={styles.cardItem}>
-                <Headline style={styles.textPrimary}>
+                <Headline style={textPrimary}>
                     CEP: {cep.cep}
                 </Headline>
 
@@ -96,10 +96,10 @@ const CepContent: React.FC<ICepContentProps> = props => {
                     style={[styles.body1, styles.marginTop1]}
                 >
                     Logradouro:
-                    
+
                     {' '}
 
-                    <Text style={[styles.body1, styles.textPrimary]}>
+                    <Text style={[styles.body1, textPrimary]}>
                         {cep.logradouro} {cep.complemento ? `- ${cep.complemento}` : ''}
                     </Text>
                 </Text>
@@ -108,22 +108,22 @@ const CepContent: React.FC<ICepContentProps> = props => {
                     style={styles.body1}
                 >
                     Bairro:
-                    
+
                     {' '}
 
-                    <Text style={[styles.body1, styles.textPrimary]}>
+                    <Text style={[styles.body1, textPrimary]}>
                         {cep.bairro}
                     </Text>
                 </Text>
-        
+
                 <Text
                     style={styles.body1}
                 >
                     Cidade/Estado:
-                    
+
                     {' '}
 
-                    <Text style={[styles.body1, styles.textPrimary]}>
+                    <Text style={[styles.body1, textPrimary]}>
                         {cep.localidade}/{cep.uf}
                     </Text>
                 </Text>
