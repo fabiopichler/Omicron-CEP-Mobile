@@ -38,6 +38,7 @@ const AboutScreen: React.FC<NavigationStackScreenProps> = () => {
             />
 
             <TabView
+                style={{ backgroundColor: colors.background }}
                 navigationState={state}
                 renderScene={SceneMap({
                     about: AboutSceneTab,

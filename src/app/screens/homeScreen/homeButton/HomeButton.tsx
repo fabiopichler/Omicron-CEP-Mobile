@@ -52,7 +52,7 @@ const HomeButton: React.FC<IHomeButtonProps> = ({
         >
             <>
                 <Text style={styles.textTop}>
-                    Pesquisa por
+                    Pesquisa pelo
                 </Text>
 
                 <View style={styles.textView}>

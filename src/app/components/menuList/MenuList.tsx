@@ -21,15 +21,15 @@ const MenuList: React.FC<IMenuListProps> = props => {
     return (
         <>
             <Menu.Item
-                title="Versão Web"
-                icon="web"
-                onPress={handleOpenURL('https://projects.fabiopichler.net/omicron-cep/')}
-            />
-
-            <Menu.Item
                 title="Sobre o App"
                 icon="information"
                 onPress={handleNavigate('About')}
+            />
+
+            <Menu.Item
+                title="Versão Web"
+                icon="web"
+                onPress={handleOpenURL('https://projects.fabiopichler.net/omicron-cep/')}
             />
 
             <Divider />

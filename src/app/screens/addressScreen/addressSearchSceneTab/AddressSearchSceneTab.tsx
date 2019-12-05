@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
         paddingHorizontal: 14,
-        backgroundColor: '#e9eaeb',
     }
 });
 

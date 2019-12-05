@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#e9eaeb',
     },
     text: {
         maxWidth: 500,

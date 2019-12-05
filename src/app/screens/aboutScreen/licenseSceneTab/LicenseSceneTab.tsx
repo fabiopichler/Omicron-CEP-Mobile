@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     root: {
         flexGrow: 1,
         paddingHorizontal: 14,
-        backgroundColor: '#e9eaeb',
     },
     card: {
         marginHorizontal: 2,

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { StyleSheet, View, ScrollView } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 import AppHeader from '@/app/appHeader/AppHeader';
 import CepForm from './cepForm/CepForm';
@@ -15,20 +16,24 @@ import { ICepScreenProps } from './ICepScreenProps';
 import { Status } from '../../../models/Status';
 
 const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+    },
     scrollView: {
         flexGrow: 1,
         paddingHorizontal: 14,
-        backgroundColor: '#e9eaeb',
     },
 });
 
 const CepScreen: React.FC<ICepScreenProps> = props => {
     const { cepState: { historyList, status }, cepDelete } = props;
 
+    const { colors } = useTheme();
+
     const [currentSearch, setCurrentSearch] = React.useState('');
 
     return (
-        <>
+        <View style={[styles.root, { backgroundColor: colors.background }]}>
             <AppHeader
                 title="Pesquisa por CEP"
             />
@@ -82,7 +87,7 @@ const CepScreen: React.FC<ICepScreenProps> = props => {
                     ) : null}
                 </ScrollView>
             )}
-        </>
+        </View>
     );
 };
 

@@ -41,6 +41,7 @@ const AddressScreen: React.FC<IAddressScreenProps> = props => {
             />
 
             <TabView
+                style={{ backgroundColor: colors.background }}
                 navigationState={state}
                 renderScene={SceneMap({
                     address: AddressSearchSceneTab,
