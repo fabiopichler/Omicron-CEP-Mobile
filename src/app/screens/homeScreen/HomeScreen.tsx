@@ -1,13 +1,16 @@
 import React from 'react';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { View, Text, StyleSheet } from 'react-native';
-import { Button, Headline, useTheme } from 'react-native-paper';
+import { Headline, useTheme } from 'react-native-paper';
 
+import Logo from '@/assets/images/logo.svg';
 import AppHeader from '@/app/appHeader/AppHeader';
 import HomeDrawer from './homeDrawer/HomeDrawer';
-import Logo from '@/assets/images/logo.svg';
+import HomeButton from './homeButton/HomeButton';
 
 const styles = StyleSheet.create({
     root: {
@@ -29,13 +32,6 @@ const styles = StyleSheet.create({
         flexGrow: 3,
         flexDirection: 'column',
         alignItems: 'center',
-    },
-    button: {
-        marginVertical: 8,
-    },
-    contentButton: {
-        width: 240,
-        height: 60,
     },
     footer: {
         padding: 16,
@@ -75,34 +71,36 @@ const HomeScreen: React.FC<NavigationStackScreenProps> = props => {
                         width={90}
                         height={90}
                     />
-                    
-                    <Headline style={styles.logoTitle}>Omicron CEP</Headline>
+
+                    <Headline style={styles.logoTitle}>
+                        Omicron CEP
+                    </Headline>
                 </View>
 
                 <View style={styles.wrapper}>
-                    <Button
-                        mode="contained"
-                        theme={{ roundness: 0, colors: { primary: colors.accent } }}
-                        style={styles.button}
-                        contentStyle={styles.contentButton}
+                    <HomeButton
+                        icon={FontAwesome5}
+                        iconName="search"
+                        iconSize={13}
                         onPress={() => navigation.navigate('Cep')}
                     >
-                        Pesquisar por CEP
-                    </Button>
+                        CEP
+                    </HomeButton>
 
-                    <Button
-                        mode="contained"
-                        theme={{ roundness: 0, colors: { primary: colors.accent } }}
-                        style={styles.button}
-                        contentStyle={styles.contentButton}
+                    <HomeButton
+                        icon={MaterialCommunityIcons}
+                        iconName="map-search"
+                        iconSize={18}
                         onPress={() => navigation.navigate('Address')}
                     >
-                        Pesquisar por endereço
-                    </Button>
+                        Endereço
+                    </HomeButton>
                 </View>
 
                 <View style={styles.footer}>
-                    <Text style={styles.textfooter}>&copy; 2019, Fábio Pichler</Text>
+                    <Text style={styles.textfooter}>
+                        &copy; 2019, Fábio Pichler
+                    </Text>
                 </View>
             </View>
         </HomeDrawer>
