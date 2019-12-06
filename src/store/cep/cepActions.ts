@@ -23,7 +23,7 @@ export const cepInit = () => async (dispatch: (param: ICepAction) => void) => {
 
 export const checkCep = (cep: string) => (
     async (dispatch: (param: ICepAction) => void) => {
-        dispatch({ type: CEP_START, payload: null });
+        dispatch({ type: CEP_START, payload: cep });
 
         const url = `https://viacep.com.br/ws/${cep}/json/unicode/`;
 

@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
 const CepForm: React.FC<ICepFormProps> = ({
     cepState: {
         status,
+        currentCep,
     },
     checkCep,
     setCurrentSearch,
@@ -37,6 +38,11 @@ const CepForm: React.FC<ICepFormProps> = ({
 
     const [cep, setCep] = React.useState('');
     const [focus, setFocus] = React.useState(false);
+
+    React.useEffect(() => {
+        setCep(currentCep);
+        setCurrentSearch(currentCep);
+    }, []);
 
     const handleSubmit = (): void => {
         if (cep.length !== 9 || status === Status.Loading)

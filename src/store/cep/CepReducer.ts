@@ -13,6 +13,7 @@ import { CepHistory } from '../../models/CepHistory';
 import { Config } from '@/config';
 
 const initialState: ICepState = {
+    currentCep: '',
     historyList: [],
     status: Status.Nothing
 };
@@ -40,13 +41,18 @@ export const CepReducer = (state: ICepState = initialState, actions: ICepAction)
             CepHistory.setList(historyList);
 
             return {
+                ...state,
                 historyList,
                 status: Status.Ok
             };
         }
 
         case CEP_START:
-            return { ...state, status: Status.Loading };
+            return {
+                ...state,
+                status: Status.Loading,
+                currentCep: payload,
+            };
 
         case CEP_DELETE: {
             const historyList = [...state.historyList];
