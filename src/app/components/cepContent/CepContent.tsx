@@ -41,8 +41,11 @@ const styles = StyleSheet.create({
     },
 });
 
-const CepContent: React.FC<ICepContentProps> = props => {
-    const { cep, hideDate, onCepDelete } = props;
+const CepContent: React.FC<ICepContentProps> = ({
+    cep,
+    hideDate,
+    onCepDelete,
+}) => {
 
     const { colors } = useTheme();
     const textPrimary = { color: colors.accent };

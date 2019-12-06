@@ -45,8 +45,11 @@ const styles = StyleSheet.create({
     },
 });
 
-const AddressContent: React.FC<IAddressContentProps> = props => {
-    const { title, address, addressDelete } = props;
+const AddressContent: React.FC<IAddressContentProps> = ({
+    title,
+    address,
+    addressDelete,
+}) => {
 
     const { colors } = useTheme();
     const textPrimary = { color: colors.accent };
@@ -110,19 +113,19 @@ const AddressContent: React.FC<IAddressContentProps> = props => {
                     style={[styles.body1, styles.marginTop1]}
                 >
                     Logradouro:
-                    
+
                     {' '}
 
                     <Text style={[styles.body1, textPrimary]}>
                         {address.logradouro}
                     </Text>
                 </Text>
-                
+
                 <Text
                     style={styles.body1}
                 >
                     Cidade:
-                    
+
                     {' '}
 
                     <Text style={[styles.body1, textPrimary]}>
@@ -134,7 +137,7 @@ const AddressContent: React.FC<IAddressContentProps> = props => {
                     style={styles.body1}
                 >
                     Estado (UF):
-                    
+
                     {' '}
 
                     <Text style={[styles.body1, textPrimary]}>

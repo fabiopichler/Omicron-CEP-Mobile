@@ -44,23 +44,22 @@ const styles = StyleSheet.create({
     },
 });
 
-const Alert: React.FC<IAlertProps> = props => {
-    const { children, type } = props;
-    
-    return (
-        <Card style={[styles.root, styles[type]]}>
-            <Card.Content style={styles.cardItem}>
-                <Icon
-                    name={type}
-                    style={[ styles.icon, styles[`text-${type}` as AlertType] ]}
-                />
+const Alert: React.FC<IAlertProps> = ({
+    type = 'info',
+    children,
+}) => (
+    <Card style={[styles.root, styles[type]]}>
+        <Card.Content style={styles.cardItem}>
+            <Icon
+                name={type}
+                style={[styles.icon, styles[`text-${type}` as AlertType]]}
+            />
 
-                <Text style={[ styles.text, styles[`text-${type}` as AlertType] ]}>
-                    {children}
-                </Text>
-            </Card.Content>
-        </Card>
-    );
-};
+            <Text style={[styles.text, styles[`text-${type}` as AlertType]]}>
+                {children}
+            </Text>
+        </Card.Content>
+    </Card>
+);
 
 export default Alert;

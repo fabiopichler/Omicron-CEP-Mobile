@@ -21,14 +21,12 @@ const styles = StyleSheet.create({
     }
 });
 
-const Info: React.FC = props => {
-    const { children } = props;
-    
-    return (
-        <View style={styles.root}>
-            <Text style={styles.text}>{children}</Text>
-        </View>
-    );
-};
+const Info: React.FC = ({
+    children,
+}) => (
+    <View style={styles.root}>
+        <Text style={styles.text}>{children}</Text>
+    </View>
+);
 
 export default Info;

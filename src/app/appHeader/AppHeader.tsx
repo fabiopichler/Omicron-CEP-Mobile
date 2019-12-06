@@ -8,24 +8,33 @@ import MenuList from '../components/menuList/MenuList';
 
 import { IAppHeaderProps } from './IAppHeaderProps';
 
-const AppHeader: React.FC<IAppHeaderProps> = props => {
-    const { navigation } = props;
+const AppHeader: React.FC<IAppHeaderProps> = ({
+    title,
+    titleStyle,
+    subtitle,
+    subtitleStyle,
+    noLeft,
+    noMenu,
+    noShadow,
+    onDrawerOpen,
+    navigation,
+}) => {
 
     const [menuVisible, setMenuVisible] = React.useState(false);
 
     return (
         <Appbar.Header
             style={{
-                elevation: props.noShadow ? 0 : 4,
+                elevation: noShadow ? 0 : 4,
                 marginTop: StatusBar.currentHeight,
             }}
         >
-            {props.noLeft ? null : (
-                props.onDrawerOpen ? (
-                    <Appbar.Action 
+            {noLeft ? null : (
+                onDrawerOpen ? (
+                    <Appbar.Action
                         icon="menu"
                         color="white"
-                        onPress={props.onDrawerOpen}
+                        onPress={onDrawerOpen}
                     />
                 ) : (
                     <Appbar.BackAction
@@ -35,13 +44,13 @@ const AppHeader: React.FC<IAppHeaderProps> = props => {
             )}
 
             <Appbar.Content
-                title={props.title}
-                titleStyle={props.titleStyle}
-                subtitle={props.subtitle}
-                subtitleStyle={props.subtitleStyle}
+                title={title}
+                titleStyle={titleStyle}
+                subtitle={subtitle}
+                subtitleStyle={subtitleStyle}
             />
 
-            {props.noMenu ? null : (
+            {noMenu ? null : (
                 <Menu
                     onDismiss={() => setMenuVisible(false)}
                     visible={menuVisible}
