@@ -1,12 +1,24 @@
 import React from 'react';
 
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Appbar, Menu } from 'react-native-paper';
 
-import MenuList from '../components/menuList/MenuList';
+import MenuList from '../menuList/MenuList';
 
 import { IAppHeaderProps } from './IAppHeaderProps';
+
+const styles = StyleSheet.create({
+    action: {
+        marginRight: 0,
+    },
+    content: {
+        marginLeft: 0,
+    },
+    titleStyle: {
+        fontSize: 18,
+    },
+});
 
 const AppHeader: React.FC<IAppHeaderProps> = ({
     title,
@@ -35,19 +47,22 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
                         icon="menu"
                         color="white"
                         onPress={onDrawerOpen}
+                        style={styles.action}
                     />
                 ) : (
                     <Appbar.BackAction
                         onPress={() => { navigation.goBack() || navigation.navigate('Home') }}
+                        style={styles.action}
                     />
                 )
             )}
 
             <Appbar.Content
                 title={title}
-                titleStyle={titleStyle}
+                titleStyle={[styles.titleStyle, titleStyle]}
                 subtitle={subtitle}
                 subtitleStyle={subtitleStyle}
+                style={styles.content}
             />
 
             {noMenu ? null : (

@@ -4,7 +4,7 @@ import { Dimensions, StyleSheet } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useTheme } from 'react-native-paper';
 
-import AppHeader from '@/app/appHeader/AppHeader';
+import AppHeader from '@/app/components/appHeader/AppHeader';
 import AddressSearchSceneTab from './addressSearchSceneTab/AddressSearchSceneTab';
 import AddressHistorySceneTab from './addressHistorySceneTab/AddressHistorySceneTab';
 import AddressSearchForm from './addressSearchForm/AddressSearchForm';

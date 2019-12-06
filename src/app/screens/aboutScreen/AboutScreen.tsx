@@ -5,7 +5,7 @@ import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useTheme } from 'react-native-paper';
 
-import AppHeader from '@/app/appHeader/AppHeader';
+import AppHeader from '@/app/components/appHeader/AppHeader';
 import AboutSceneTab from './aboutSceneTab/AboutSceneTab';
 import LicenseSceneTab from './licenseSceneTab/LicenseSceneTab';
 

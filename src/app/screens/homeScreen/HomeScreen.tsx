@@ -8,7 +8,7 @@ import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Headline, useTheme } from 'react-native-paper';
 
 import Logo from '@/assets/images/logo.svg';
-import AppHeader from '@/app/appHeader/AppHeader';
+import AppHeader from '@/app/components/appHeader/AppHeader';
 import HomeDrawer from './homeDrawer/HomeDrawer';
 import HomeButton from './homeButton/HomeButton';
 
@@ -59,7 +59,7 @@ const HomeScreen: React.FC<NavigationStackScreenProps> = ({
         >
             <View style={[styles.root, { backgroundColor: colors.primary }]}>
                 <AppHeader
-                    title=""
+                    title="Buscas por CEP e endereço"
                     noShadow
                     noMenu
                     onDrawerOpen={openDrawer}

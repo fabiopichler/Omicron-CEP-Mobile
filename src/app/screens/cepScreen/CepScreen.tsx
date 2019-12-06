@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
-import AppHeader from '@/app/appHeader/AppHeader';
+import AppHeader from '@/app/components/appHeader/AppHeader';
 import CepForm from './cepForm/CepForm';
 import CepContent from '../../components/cepContent/CepContent';
 import Title from '../../components/title/Title';
