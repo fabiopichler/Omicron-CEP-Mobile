@@ -3,8 +3,8 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { View, Text, StyleSheet } from 'react-native';
 import { Headline, useTheme } from 'react-native-paper';
 
 import Logo from '@/assets/images/logo.svg';
@@ -15,23 +15,21 @@ import HomeButton from './homeButton/HomeButton';
 const styles = StyleSheet.create({
     root: {
         flexGrow: 1,
-        flexDirection: 'column',
     },
-    logoContainer: {
-        flexGrow: 2,
+    scrollView: {
+        flexGrow: 1,
+    },
+    wrapper: {
+        flexGrow: 1,
+        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
     },
     logoTitle: {
         color: 'white',
         fontSize: 26,
         marginTop: 14,
         marginBottom: 10,
-    },
-    wrapper: {
-        flexGrow: 3,
-        flexDirection: 'column',
-        alignItems: 'center',
     },
     footer: {
         padding: 16,
@@ -67,42 +65,45 @@ const HomeScreen: React.FC<NavigationStackScreenProps> = ({
                     onDrawerOpen={openDrawer}
                 />
 
-                <View style={styles.logoContainer}>
-                    <Logo
-                        width={90}
-                        height={90}
-                    />
+                <ScrollView
+                    style={styles.scrollView}
+                    contentContainerStyle={styles.scrollView}
+                >
+                    <View style={styles.wrapper}>
+                        <Logo
+                            width={90}
+                            height={90}
+                        />
 
-                    <Headline style={styles.logoTitle}>
-                        Omicron CEP
-                    </Headline>
-                </View>
+                        <Headline style={styles.logoTitle}>
+                            Omicron CEP
+                        </Headline>
 
-                <View style={styles.wrapper}>
-                    <HomeButton
-                        icon={FontAwesome5}
-                        iconName="search"
-                        iconSize={13}
-                        onPress={() => navigation.navigate('Cep')}
-                    >
-                        CEP
-                    </HomeButton>
+                        <HomeButton
+                            icon={FontAwesome5}
+                            iconName="search"
+                            iconSize={13}
+                            onPress={() => navigation.navigate('Cep')}
+                        >
+                            CEP
+                        </HomeButton>
 
-                    <HomeButton
-                        icon={MaterialCommunityIcons}
-                        iconName="map-search"
-                        iconSize={18}
-                        onPress={() => navigation.navigate('Address')}
-                    >
-                        Endereço
-                    </HomeButton>
-                </View>
+                        <HomeButton
+                            icon={MaterialCommunityIcons}
+                            iconName="map-search"
+                            iconSize={18}
+                            onPress={() => navigation.navigate('Address')}
+                        >
+                            Endereço
+                        </HomeButton>
+                    </View>
 
-                <View style={styles.footer}>
-                    <Text style={styles.textfooter}>
-                        &copy; 2019, Fábio Pichler
-                    </Text>
-                </View>
+                    <View style={styles.footer}>
+                        <Text style={styles.textfooter}>
+                            &copy; 2019, Fábio Pichler
+                        </Text>
+                    </View>
+                </ScrollView>
             </View>
         </HomeDrawer>
     );
