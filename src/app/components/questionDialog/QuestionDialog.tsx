@@ -14,14 +14,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const QuestionDialog: React.FC<IQuestionDialogProps> = props => {
-    const {
-        title,
-        description,
-        openButton: OpenButton,
-        onCancel,
-        onConfirm,
-    } = props;
+const QuestionDialog: React.FC<IQuestionDialogProps> = ({
+    title,
+    description,
+    openButton: OpenButton,
+    onCancel,
+    onConfirm,
+}) => {
 
     const [open, setOpen] = React.useState(false);
 
@@ -51,9 +50,11 @@ const QuestionDialog: React.FC<IQuestionDialogProps> = props => {
                     onDismiss={handleClose}
                 >
                     <Dialog.Title>{title}</Dialog.Title>
-                    
+
                     <Dialog.Content>
-                        <Paragraph style={styles.paragraph}>{description}</Paragraph>
+                        <Paragraph style={styles.paragraph}>
+                            {description}
+                        </Paragraph>
                     </Dialog.Content>
 
                     <Dialog.Actions>

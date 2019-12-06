@@ -30,22 +30,22 @@ const LicenseSceneTab: React.FC = () => {
     return (
         <ScrollView style={styles.root}>
             <View style={{ height: 16 }} />
-            
-            <Card style={[ styles.card, styles.marginBottom2 ]}>
+
+            <Card style={[styles.card, styles.marginBottom2]}>
                 <Card.Content>
-                    <Paragraph style={[ styles.paragraph, styles.marginBottom2 ]}>
+                    <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         MIT License (MIT)
                     </Paragraph>
 
-                    <Paragraph style={[ styles.paragraph, styles.marginBottom2 ]}>
+                    <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         Copyright (c) 2019 Fábio Pichler
                     </Paragraph>
 
-                    <Paragraph style={[ styles.paragraph, styles.marginBottom2 ]}>
+                    <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
                     </Paragraph>
 
-                    <Paragraph style={[ styles.paragraph, styles.marginBottom2 ]}>
+                    <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
                     </Paragraph>
 

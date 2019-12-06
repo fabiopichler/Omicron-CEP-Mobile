@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 });
 
 const AboutScreen: React.FC<NavigationStackScreenProps> = () => {
-    
+
     const { colors } = useTheme();
 
     const [state, setState] = React.useState({

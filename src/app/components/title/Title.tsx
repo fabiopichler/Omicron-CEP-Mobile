@@ -18,24 +18,23 @@ const styles = StyleSheet.create({
     }
 });
 
-const Title: React.FC<ITitleProps> = props => {
-    const { title, desc } = props;
-    
-    return (
-        <View style={styles.root}>
-            <TitlePaper
-                style={styles.color}
-            >
-                {title}
-            </TitlePaper>
+const Title: React.FC<ITitleProps> = ({
+    title,
+    desc,
+}) => (
+    <View style={styles.root}>
+        <TitlePaper
+            style={styles.color}
+        >
+            {title}
+        </TitlePaper>
 
-            <Text
-                style={[ styles.text, styles.color ]}
-            >
-                {desc}
-            </Text>
-        </View>
-    );
-};
+        <Text
+            style={[styles.text, styles.color]}
+        >
+            {desc}
+        </Text>
+    </View>
+);
 
 export default Title;

@@ -28,7 +28,7 @@ const Loading: React.FC = () => (
                 animating={true}
                 size={32}
             />
-            
+
             <Paragraph style={styles.text}>Carregando...</Paragraph>
         </Card.Content>
     </Card>

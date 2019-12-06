@@ -16,20 +16,20 @@ const styles = StyleSheet.create({
     }
 });
 
-const AddressHistorySceneTab: React.FC<IAddressHistorySceneTabProps> = props => {
-    const { addressState: { historyList }, addressDelete } = props;
-    
-    return (
-        <>
-            {historyList.length === 0 ? (
-                <Info>
-                    Você ainda não realizou pesquisas por endereço. Para começar, clique no botão de pesquisa, logo a baixo, e insira o endereço desejado.
-                </Info>
+const AddressHistorySceneTab: React.FC<IAddressHistorySceneTabProps> = ({
+    addressState: { historyList },
+    addressDelete,
+}) => (
+    <>
+        {historyList.length === 0 ? (
+            <Info>
+                Você ainda não realizou pesquisas por endereço. Para começar, clique no botão de pesquisa, logo a baixo, e insira o endereço desejado.
+            </Info>
 
-            ) : (
+        ) : (
                 <ScrollView style={styles.scrollView}>
                     <View style={{ height: 16 }} />
-                    
+
                     <Title
                         title="Histórico de pesquisas"
                         desc="Lista das últimas pesquisas realizadas"
@@ -44,8 +44,7 @@ const AddressHistorySceneTab: React.FC<IAddressHistorySceneTabProps> = props => 
                     ))}
                 </ScrollView>
             )}
-        </>
-    );
-};
+    </>
+);
 
 export default AddressHistorySceneTabContainer(AddressHistorySceneTab);

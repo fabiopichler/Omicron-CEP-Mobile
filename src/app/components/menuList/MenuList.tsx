@@ -5,8 +5,10 @@ import { Menu, Divider } from 'react-native-paper';
 
 import { IMenuListProps } from './IMenuListProps';
 
-const MenuList: React.FC<IMenuListProps> = props => {
-    const { onItemPress, navigation } = props;
+const MenuList: React.FC<IMenuListProps> = ({
+    onItemPress,
+    navigation,
+}) => {
 
     const handleNavigate = (routeName: string) => () => {
         onItemPress();
@@ -33,7 +35,7 @@ const MenuList: React.FC<IMenuListProps> = props => {
             />
 
             <Divider />
-            
+
             <Menu.Item
                 title="Visitar o website oficial"
                 icon="home"

@@ -37,13 +37,13 @@ const AboutSceneTab: React.FC = () => {
     return (
         <ScrollView style={styles.root}>
             <View style={{ height: 16 }} />
-            
+
             <Title
                 title={`Omicron CEP v${appVersion}`}
                 desc="&copy; 2019, Fábio Pichler"
             />
 
-            <Card style={[ styles.card, styles.marginBottom2 ]}>
+            <Card style={[styles.card, styles.marginBottom2]}>
                 <Card.Title title="Omicron CEP" />
 
                 <Card.Content>
@@ -53,9 +53,9 @@ const AboutSceneTab: React.FC = () => {
                 </Card.Content>
             </Card>
 
-            <Card style={[ styles.card, styles.marginBottom2 ]}>
+            <Card style={[styles.card, styles.marginBottom2]}>
                 <Card.Content>
-                    <Paragraph style={[ styles.paragraph, styles.marginBottom2 ]}>
+                    <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         O Omicron CEP é um aplicativo especialmente desenvolvido para a consulta de CEPs de todo o Brasil.
                     </Paragraph>
 
@@ -65,7 +65,7 @@ const AboutSceneTab: React.FC = () => {
                 </Card.Content>
             </Card>
 
-            <Card style={[ styles.card, styles.marginBottom2 ]}>
+            <Card style={[styles.card, styles.marginBottom2]}>
                 <Card.Title title="Informações" />
 
                 <Card.Content>
