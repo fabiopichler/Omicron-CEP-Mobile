@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
     }
 });
 
-const AddressScreen: React.FC<IAddressScreenProps> = props => {
-    const { onCheckByAddress } = props;
+const AddressScreen: React.FC<IAddressScreenProps> = ({
+    onCheckByAddress,
+}) => {
     const { colors } = useTheme();
 
     const [state, setState] = React.useState({

@@ -20,58 +20,58 @@ const styles = StyleSheet.create({
     }
 });
 
-const AddressSearchSceneTab: React.FC<IAddressSearchSceneTabProps> = props => {
-    const {
-        addressState: { status, historyList, searchResultList },
-        addressDelete
-    } = props;
-    
-    return (
-        <>
-            {searchResultList.length === 0 && status === Status.Nothing ? (
-                <Info>
-                    Para pesquisar endereços, clique no botão de pesquisa, logo a baixo, e insira o endereço desejado.
-                </Info>
+const AddressSearchSceneTab: React.FC<IAddressSearchSceneTabProps> = ({
+    addressState: {
+        status,
+        historyList,
+        searchResultList,
+    },
+    addressDelete,
+}) => (
+    <>
+        {searchResultList.length === 0 && status === Status.Nothing ? (
+            <Info>
+                Para pesquisar endereços, clique no botão de pesquisa, logo a baixo, e insira o endereço desejado.
+            </Info>
 
-            ) : (
-                <ScrollView style={styles.scrollView}>
-                    <View style={{ height: 16 }} />
-                    
-                    {status === Status.Loading ? (
-                        <Loading />
+        ) : (
+            <ScrollView style={styles.scrollView}>
+                <View style={{ height: 16 }} />
+                
+                {status === Status.Loading ? (
+                    <Loading />
 
-                    ) : status === Status.NotFound ? (
-                        <Alert type="warning">
-                            A pesquisa atual não retornou resultados
-                        </Alert>
+                ) : status === Status.NotFound ? (
+                    <Alert type="warning">
+                        A pesquisa atual não retornou resultados
+                    </Alert>
 
-                    ) : status === Status.Error ? (
-                        <Alert type="error">
-                            Erro ao realizar a pesquisa
-                        </Alert>
+                ) : status === Status.Error ? (
+                    <Alert type="error">
+                        Erro ao realizar a pesquisa
+                    </Alert>
 
-                    ) : (
-                        <>
-                            <AddressContent
-                                title="Pesquisa atual"
-                                address={historyList[0]}
-                                addressDelete={addressDelete}
-                            />
+                ) : (
+                    <>
+                        <AddressContent
+                            title="Pesquisa atual"
+                            address={historyList[0]}
+                            addressDelete={addressDelete}
+                        />
 
-                            <Title
-                                title="Resultado da pesquisa"
-                                desc={`A pesquisa atual retornou ${searchResultList.length} endereços`}
-                            />
+                        <Title
+                            title="Resultado da pesquisa"
+                            desc={`A pesquisa atual retornou ${searchResultList.length} endereços`}
+                        />
 
-                            {searchResultList.map((cep, index) => (
-                                <CepContent cep={cep} key={index} hideDate />
-                            ))}
-                        </>
-                    )}
-                </ScrollView>
-            )}
-        </>
-    );
-};
+                        {searchResultList.map((cep, index) => (
+                            <CepContent cep={cep} key={index} hideDate />
+                        ))}
+                    </>
+                )}
+            </ScrollView>
+        )}
+    </>
+);
 
 export default AddressSearchSceneTabContainer(AddressSearchSceneTab);

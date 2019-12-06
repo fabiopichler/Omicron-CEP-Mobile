@@ -29,8 +29,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const AddressSearchForm: React.FC<IAddressSearchFormProps> = props => {
-    const { index, onCheckByAddress } = props;
+const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
+    index,
+    onCheckByAddress,
+}) => {
 
     const inputCidadeRef = React.useRef<any>(null);
     const inputUfRef = React.useRef<any>(null);
