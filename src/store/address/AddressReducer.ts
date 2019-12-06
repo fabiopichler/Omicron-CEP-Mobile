@@ -15,6 +15,7 @@ import { Config } from '@/config';
 import { IViaCEP } from "../../models/IViaCEP";
 
 const initialState: IAddressState = {
+    currentAddress: null,
     historyList: [],
     searchResultList: [],
     status: Status.Nothing,
@@ -49,6 +50,7 @@ export const AddressReducer = (state: IAddressState = initialState, actions: IAd
             AddressHistory.setList(historyList);
 
             return {
+                ...state,
                 historyList,
                 searchResultList: payload.data,
                 status: Status.Ok
@@ -56,7 +58,11 @@ export const AddressReducer = (state: IAddressState = initialState, actions: IAd
         }
 
         case ADDRESS_START:
-            return { ...state, status: Status.Loading };
+            return {
+                ...state,
+                status: Status.Loading,
+                currentAddress: payload,
+            };
 
         case ADDRESS_DELETE: {
             let searchResultList: IViaCEP[];

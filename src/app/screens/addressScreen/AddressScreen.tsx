@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
 });
 
 const AddressScreen: React.FC<IAddressScreenProps> = ({
+    addressState,
     onCheckByAddress,
 }) => {
     const { colors } = useTheme();
@@ -63,6 +64,7 @@ const AddressScreen: React.FC<IAddressScreenProps> = ({
 
             <AddressSearchForm
                 index={state.index}
+                addressState={addressState}
                 onCheckByAddress={onCheckByAddress}
             />
         </>

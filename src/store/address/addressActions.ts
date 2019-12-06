@@ -24,7 +24,7 @@ export const addressInitHistory = () => async (dispatch: (param: IAddressAction)
 
 export const checkByAddress = (address: IAddress) => (
     async (dispatch: (param: IAddressAction) => void) => {
-        dispatch({ type: ADDRESS_START, payload: null });
+        dispatch({ type: ADDRESS_START, payload: address });
 
         const { uf, cidade, logradouro } = address;
 

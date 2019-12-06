@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
 
 const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
     index,
+    addressState: {
+        currentAddress,
+    },
     onCheckByAddress,
 }) => {
 
@@ -50,6 +53,12 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
 
     React.useEffect(() => {
         setTimeout(() => setFabVisible(true), 400);
+
+        if (currentAddress !== null) {
+            setUf(currentAddress.uf);
+            setCidade(currentAddress.cidade);
+            setLogradouro(currentAddress.logradouro);
+        }
     }, []);
 
     const checkError = () => {
