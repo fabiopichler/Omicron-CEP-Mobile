@@ -25,8 +25,13 @@ const styles = StyleSheet.create({
     }
 });
 
-const CepForm: React.FC<ICepFormProps> = props => {
-    const { cepState: { status }, checkCep, setCurrentSearch } = props;
+const CepForm: React.FC<ICepFormProps> = ({
+    cepState: {
+        status,
+    },
+    checkCep,
+    setCurrentSearch,
+}) => {
 
     const { colors } = useTheme();
 
@@ -36,7 +41,7 @@ const CepForm: React.FC<ICepFormProps> = props => {
     const handleSubmit = (): void => {
         if (cep.length !== 9 || status === Status.Loading)
             return;
-            
+
         setCurrentSearch(cep);
         checkCep(cep);
     };
@@ -75,7 +80,7 @@ const CepForm: React.FC<ICepFormProps> = props => {
                     onFocus={() => setFocus(true)}
                     onBlur={() => setFocus(false)}
                 />
-                
+
                 <IconButton
                     icon="search-web"
                     color={focus ? 'black' : 'white'}

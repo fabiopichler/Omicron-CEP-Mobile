@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View, StatusBar} from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 
 import AppNavigator from './appNavigator/AppNavigator';
 
@@ -18,7 +18,7 @@ const App: React.FC<IAppProps> = props => {
 
     React.useEffect(() => {
         StatusBar.setTranslucent(true);
-        
+
         cepInit();
         addressInitHistory();
     }, []);

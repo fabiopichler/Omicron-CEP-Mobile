@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
     }
 });
 
-const HomeScreen: React.FC<NavigationStackScreenProps> = props => {
-    const { navigation } = props;
+const HomeScreen: React.FC<NavigationStackScreenProps> = ({
+    navigation,
+}) => {
     const { colors } = useTheme();
 
     const drawerRef = React.useRef<DrawerLayout>(null);

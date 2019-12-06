@@ -19,7 +19,7 @@ export const addressInitHistory = () => async (dispatch: (param: IAddressAction)
         if (cepList)
             dispatch({ type: ADDRESS_INIT, payload: cepList });
 
-    } catch (error) {}
+    } catch (error) { }
 };
 
 export const checkByAddress = (address: IAddress) => (

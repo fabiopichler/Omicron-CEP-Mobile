@@ -18,7 +18,7 @@ export const cepInit = () => async (dispatch: (param: ICepAction) => void) => {
         if (cepList)
             dispatch({ type: CEP_INIT, payload: cepList });
 
-    } catch (error) {}
+    } catch (error) { }
 };
 
 export const checkCep = (cep: string) => (

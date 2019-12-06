@@ -25,8 +25,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const CepScreen: React.FC<ICepScreenProps> = props => {
-    const { cepState: { historyList, status }, cepDelete } = props;
+const CepScreen: React.FC<ICepScreenProps> = ({
+    cepState: {
+        historyList,
+        status,
+    },
+    cepDelete,
+}) => {
 
     const { colors } = useTheme();
 
@@ -44,7 +49,7 @@ const CepScreen: React.FC<ICepScreenProps> = props => {
                 <Info>
                     Você ainda não realizou pesquisas de endereço por CEP. Para começar, insira o número do CEP na caixa de pesquisa.
                 </Info>
-                
+
             ) : (
                 <ScrollView style={styles.scrollView}>
                     <View style={{ height: 16 }} />
@@ -66,7 +71,7 @@ const CepScreen: React.FC<ICepScreenProps> = props => {
                         <CepContent cep={historyList[0]} onCepDelete={cepDelete} />
 
                     ) : null}
-                    
+
                     {historyList.length > 1 || (status !== Status.Ok && historyList.length === 1) ? (
                         <>
                             <Title

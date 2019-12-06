@@ -9,7 +9,7 @@ export interface IViaCEP {
     logradouro: string;
     uf: string;
     unidade: string;
-    
+
     erro: boolean;
 
     date: Date;

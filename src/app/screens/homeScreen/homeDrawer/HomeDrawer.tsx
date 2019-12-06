@@ -68,7 +68,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>((props, ref) => {
+const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
+    children,
+    navigation,
+}, ref) => {
 
     const closeDrawer = () => {
         const drawerRef = ref as React.RefObject<DrawerLayout>;
@@ -82,13 +85,13 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>((props, ref)
             inputRange: [0, 1],
             outputRange: [-70, 0],
         });
-        
+
         const animatedStyles = {
             transform: [{ translateX: parallax }],
         };
 
         return (
-            <Animated.View style={[ animatedStyles, styles.drawerAnimatedView ]}>
+            <Animated.View style={[animatedStyles, styles.drawerAnimatedView]}>
                 <View style={styles.drawerTopBar} />
 
                 <ScrollView
@@ -107,7 +110,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>((props, ref)
 
                     <View style={styles.drawerViewMenuList}>
                         <MenuList
-                            navigation={props.navigation}
+                            navigation={navigation}
                             onItemPress={() => closeDrawer()}
                         />
                     </View>
@@ -148,7 +151,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>((props, ref)
                 })
             }
         >
-            {props.children}
+            {children}
         </DrawerLayoutAny>
     );
 });
