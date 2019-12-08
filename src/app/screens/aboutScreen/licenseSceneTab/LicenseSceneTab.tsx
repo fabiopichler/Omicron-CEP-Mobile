@@ -3,6 +3,8 @@ import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { Card, Paragraph } from 'react-native-paper';
 
+import { useTheme } from '@/themes/theme';
+
 const styles = StyleSheet.create({
     root: {
         flexGrow: 1,
@@ -10,8 +12,6 @@ const styles = StyleSheet.create({
     },
     card: {
         marginHorizontal: 2,
-        borderRadius: 0,
-        elevation: 1,
     },
     marginBottom1: {
         marginBottom: 8,
@@ -27,11 +27,13 @@ const styles = StyleSheet.create({
 
 const LicenseSceneTab: React.FC = () => {
 
+    const { customStyles } = useTheme();
+
     return (
         <ScrollView style={styles.root}>
             <View style={{ height: 16 }} />
 
-            <Card style={[styles.card, styles.marginBottom2]}>
+            <Card style={[styles.card, styles.marginBottom2, customStyles.card]}>
                 <Card.Content>
                     <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         MIT License (MIT)

@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
     },
     card: {
         marginHorizontal: 2,
-        borderRadius: 0,
-        elevation: 1,
     },
     marginBottom2: {
         marginBottom: 16,
@@ -31,7 +29,7 @@ const styles = StyleSheet.create({
 
 const AboutSceneTab: React.FC = () => {
 
-    const { customColors } = useTheme();
+    const { customColors, customStyles } = useTheme();
 
     const handleOpenURL = (url: string) => () => {
         Linking.openURL(url).catch((err) => console.error('An error occurred', err));
@@ -46,7 +44,7 @@ const AboutSceneTab: React.FC = () => {
                 desc="&copy; 2019, Fábio Pichler"
             />
 
-            <Card style={[styles.card, styles.marginBottom2]}>
+            <Card style={[styles.card, styles.marginBottom2, customStyles.card]}>
                 <Card.Title title="Omicron CEP" />
 
                 <Card.Content>
@@ -56,7 +54,7 @@ const AboutSceneTab: React.FC = () => {
                 </Card.Content>
             </Card>
 
-            <Card style={[styles.card, styles.marginBottom2]}>
+            <Card style={[styles.card, styles.marginBottom2, customStyles.card]}>
                 <Card.Content>
                     <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
                         O Omicron CEP é um aplicativo especialmente desenvolvido para a consulta de CEPs de todo o Brasil.
@@ -68,7 +66,7 @@ const AboutSceneTab: React.FC = () => {
                 </Card.Content>
             </Card>
 
-            <Card style={[styles.card, styles.marginBottom2]}>
+            <Card style={[styles.card, styles.marginBottom2, customStyles.card]}>
                 <Card.Title title="Informações" />
 
                 <Card.Content>

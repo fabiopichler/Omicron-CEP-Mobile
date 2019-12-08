@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         marginHorizontal: 2,
         marginBottom: 16,
-        borderRadius: 0,
     },
     cardItem: {
         marginTop: 12,
@@ -46,8 +45,8 @@ const CepContent: React.FC<ICepContentProps> = ({
 }) => {
 
     const {
-        dark,
         customColors,
+        customStyles,
     } = useTheme();
 
     const textPrimary = {
@@ -59,7 +58,7 @@ const CepContent: React.FC<ICepContentProps> = ({
     };
 
     return (
-        <Card style={[styles.root, { elevation: dark ? 0 : 1 }]}>
+        <Card style={[styles.root, customStyles.card]}>
             {onCepDelete ? (
                 <QuestionDialog
                     title="Remover CEP"

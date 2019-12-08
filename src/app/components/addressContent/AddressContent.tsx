@@ -47,8 +47,8 @@ const AddressContent: React.FC<IAddressContentProps> = ({
 }) => {
 
     const {
-        dark,
         customColors,
+        customStyles,
     } = useTheme();
 
     const textPrimary = {
@@ -60,7 +60,7 @@ const AddressContent: React.FC<IAddressContentProps> = ({
     };
 
     return (
-        <Card style={[styles.root, { elevation: dark ? 0 : 1 }]}>
+        <Card style={[styles.root, customStyles.card]}>
             {addressDelete ? (
                 <QuestionDialog
                     title="Remover endereço"

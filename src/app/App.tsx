@@ -8,7 +8,8 @@ import AppNavigator from './appNavigator/AppNavigator';
 
 import { AppContainer } from './AppContainer';
 import { IAppProps } from './IAppProps';
-import { defaultTheme, darkTheme } from '@/themes/theme';
+import { defaultTheme } from '@/themes/defaultTheme';
+import { darkTheme } from '@/themes/darkTheme';
 
 const App: React.FC<IAppProps> = ({
     systemState: {
