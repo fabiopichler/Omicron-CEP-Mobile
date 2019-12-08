@@ -1,5 +1,7 @@
+import AsyncStorage from '@react-native-community/async-storage';
+
 import {
-    SYSTEM_INIT,
+    SYSTEM_DARK_MODE_INIT,
     SYSTEM_DARK_MODE,
 } from './systemActions';
 
@@ -14,14 +16,29 @@ export const SystemReducer = (state: ISystemState = initialState, actions: ISyst
     const { type, payload } = actions;
 
     switch (type) {
-        case SYSTEM_INIT:
+        case SYSTEM_DARK_MODE_INIT:
             return {
                 ...state,
-                darkModeEnabled: payload,
+                darkModeEnabled: payload === 'enabled' ? true : false,
             };
 
-        case SYSTEM_DARK_MODE:
-            return { ...state, darkModeEnabled: !state.darkModeEnabled };
+        case SYSTEM_DARK_MODE: {
+            const darkModeEnabled = !state.darkModeEnabled;
+
+            (async () => {
+                try {
+                    await AsyncStorage.setItem(
+                        'SystemDarkMode',
+                        darkModeEnabled ? 'enabled' : 'disabled'
+                    );
+                } catch (error) { }
+            })();
+
+            return {
+                ...state,
+                darkModeEnabled,
+            };
+        }
 
         default:
             return state;

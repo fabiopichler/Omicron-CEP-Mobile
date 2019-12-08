@@ -11,31 +11,37 @@ import { IAppProps } from './IAppProps';
 import { defaultTheme, darkTheme, ITheme } from '@/themes/theme';
 
 const App: React.FC<IAppProps> = ({
+    systemState: {
+        darkModeEnabled,
+    },
+    systemInit,
     cepInit,
     addressInitHistory,
 }) => {
 
-    const [theme, setTheme] = React.useState<ITheme | null>(null);
-
     React.useEffect(() => {
         StatusBar.setTranslucent(true);
 
-        setTheme(darkTheme);
-
+        systemInit();
         cepInit();
         addressInitHistory();
     }, []);
 
     React.useEffect(() => {
-        if (theme)
-            (changeNavigationBarColor as any)(theme.colors.primary, false, false);
-    }, [theme]);
+        if (darkModeEnabled !== null) {
+            const theme = darkModeEnabled ? darkTheme : defaultTheme;
 
-    if (!theme)
+            (changeNavigationBarColor as any)(theme.colors.primary, false, false);
+        }
+    }, [darkModeEnabled]);
+
+    if (darkModeEnabled === null)
         return null;
 
     return (
-        <PaperProvider theme={theme}>
+        <PaperProvider
+            theme={darkModeEnabled ? darkTheme : defaultTheme}
+        >
             <AppNavigator />
         </PaperProvider>
     );

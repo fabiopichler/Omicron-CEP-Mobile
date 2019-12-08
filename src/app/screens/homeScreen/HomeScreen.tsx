@@ -4,7 +4,6 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Headline, Switch, Text } from 'react-native-paper';
 
 import Logo from '@/assets/images/logo.svg';
@@ -13,6 +12,8 @@ import HomeDrawer from './homeDrawer/HomeDrawer';
 import HomeButton from './homeButton/HomeButton';
 
 import { useTheme } from '@/themes/theme';
+import { IHomeScreenProps } from './IHomeScreenProps';
+import { HomeScreenContainer } from './HomeScreenContainer';
 
 const styles = StyleSheet.create({
     root: {
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         letterSpacing: 0.5,
         fontWeight: 'bold',
+        color: 'white',
     },
     wrapper: {
         flexGrow: 1,
@@ -54,8 +56,12 @@ const styles = StyleSheet.create({
     }
 });
 
-const HomeScreen: React.FC<NavigationStackScreenProps> = ({
+const HomeScreen: React.FC<IHomeScreenProps> = ({
     navigation,
+    systemState: {
+        darkModeEnabled,
+    },
+    changeDarkMode,
 }) => {
     const { colors, customColors } = useTheme();
 
@@ -83,8 +89,8 @@ const HomeScreen: React.FC<NavigationStackScreenProps> = ({
                             </Text>
 
                             <Switch
-                                value={false}
-                                onValueChange={() => { }}
+                                value={darkModeEnabled!}
+                                onValueChange={changeDarkMode}
                                 color={customColors.textPrimary}
                             />
                         </View>
@@ -135,4 +141,4 @@ const HomeScreen: React.FC<NavigationStackScreenProps> = ({
     );
 };
 
-export default HomeScreen;
+export default HomeScreenContainer(HomeScreen);
