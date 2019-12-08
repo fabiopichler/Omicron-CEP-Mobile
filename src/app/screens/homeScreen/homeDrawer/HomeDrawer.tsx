@@ -9,6 +9,7 @@ import Logo from '@/assets/images/logo.svg';
 
 import { Config } from '@/config';
 import { IHomeDrawerProps } from './IHomeDrawerProps';
+import { useTheme } from '@/themes/theme';
 
 const DrawerLayoutAny: any = DrawerLayout; // <-- RTA 😱 (Recurso Técnico Alternativo)
 
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
         height: 200,
         marginBottom: 8,
         paddingTop: StatusBar.currentHeight,
-        backgroundColor: '#007254',
     },
     drawerHeaderContent: {
         flexGrow: 1,
@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     },
     drawerFooterText: {
         fontSize: 14,
-        color: '#777',
         fontWeight: 'bold',
     },
 });
@@ -72,6 +71,18 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
     children,
     navigation,
 }, ref) => {
+
+    const {
+        customColors,
+    } = useTheme();
+
+    const drawerHeader = {
+        backgroundColor: customColors.primaryDark,
+    };
+
+    const textSecondary = {
+        color: customColors.textSecondary,
+    };
 
     const closeDrawer = () => {
         const drawerRef = ref as React.RefObject<DrawerLayout>;
@@ -98,7 +109,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
                     style={styles.drawerScrollView}
                     contentContainerStyle={styles.drawerScrollViewContainer}
                 >
-                    <View style={styles.drawerHeader}>
+                    <View style={[styles.drawerHeader, drawerHeader]}>
                         <View style={styles.drawerHeaderContent}>
                             <Logo width={80} height={80} />
 
@@ -116,7 +127,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
                     </View>
 
                     <View style={styles.drawerFooter}>
-                        <Text style={styles.drawerFooterText}>
+                        <Text style={[styles.drawerFooterText, textSecondary]}>
                             Versão {Config.appVersion}
                         </Text>
                     </View>
@@ -133,7 +144,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
             drawerPosition="left"
             drawerType="back"
             keyboardDismissMode="on-drag"
-            drawerBackgroundColor="#ddd"
+            drawerBackgroundColor={customColors.backgroundSecondary}
             overlayColor="#00000000"
             renderNavigationView={renderDrawer}
             contentContainerStyle={

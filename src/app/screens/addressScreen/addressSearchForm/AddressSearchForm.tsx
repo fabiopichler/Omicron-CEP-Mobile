@@ -5,6 +5,7 @@ import { FAB, Portal, Dialog, Button, TextInput, HelperText } from 'react-native
 
 import { IAddressSearchFormProps } from './IAddressSearchFormProps';
 import { UfList } from '../../../../data/UfList';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     fab: {
@@ -12,9 +13,6 @@ const styles = StyleSheet.create({
         margin: 20,
         right: 0,
         bottom: 0,
-    },
-    dialog: {
-        backgroundColor: '#f6f7f8',
     },
     dialogContent: {
         paddingBottom: 0,
@@ -36,6 +34,8 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
     },
     onCheckByAddress,
 }) => {
+
+    const { customColors } = useTheme();
 
     const inputCidadeRef = React.useRef<any>(null);
     const inputUfRef = React.useRef<any>(null);
@@ -113,7 +113,6 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
                 <Dialog
                     visible={open}
                     onDismiss={handleCancel}
-                    style={styles.dialog}
                 >
                     <Dialog.Title>Endereço para pesquisa</Dialog.Title>
 
@@ -191,9 +190,27 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
                     </Dialog.Content>
 
                     <Dialog.Actions>
-                        <Button onPress={handleCancel}>Cancelar</Button>
+                        <Button
+                            onPress={handleCancel}
+                            theme={{
+                                colors: {
+                                    primary: customColors.textPrimary
+                                }
+                            }}
+                        >
+                            Cancelar
+                        </Button>
 
-                        <Button onPress={handleStartSearch}>Pesquisar</Button>
+                        <Button
+                            onPress={handleStartSearch}
+                            theme={{
+                                colors: {
+                                    primary: customColors.textPrimary
+                                }
+                            }}
+                        >
+                            Pesquisar
+                        </Button>
                     </Dialog.Actions>
                 </Dialog>
             </Portal>

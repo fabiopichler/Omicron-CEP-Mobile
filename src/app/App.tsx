@@ -20,7 +20,7 @@ const App: React.FC<IAppProps> = ({
     React.useEffect(() => {
         StatusBar.setTranslucent(true);
 
-        setTheme(defaultTheme);
+        setTheme(darkTheme);
 
         cepInit();
         addressInitHistory();

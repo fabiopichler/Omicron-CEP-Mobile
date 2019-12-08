@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { TextInput, IconButton, useTheme } from 'react-native-paper';
+import { TextInput, IconButton } from 'react-native-paper';
 
 import { CepFormContainer } from './CepFormContainer';
 import { ICepFormProps } from './ICepFormProps';
 import { Status } from '../../../../models/Status';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     root: {
@@ -69,6 +70,7 @@ const CepForm: React.FC<ICepFormProps> = ({
                     keyboardType="numeric"
                     returnKeyType="search"
                     theme={{
+                        dark: false,
                         roundness: 0,
                         colors: {
                             primary: 'rgba(0,0,0,.6)',

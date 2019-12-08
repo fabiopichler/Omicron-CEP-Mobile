@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { useTheme, TouchableRipple, Text } from 'react-native-paper';
+import { TouchableRipple, Text } from 'react-native-paper';
 
 import { IHomeButtonProps } from './IHomeButtonProps';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     button: {

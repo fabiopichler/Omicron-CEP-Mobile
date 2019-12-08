@@ -3,6 +3,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Card, ActivityIndicator, Paragraph } from 'react-native-paper';
 
+import { useTheme } from '@/themes/theme';
+
 const styles = StyleSheet.create({
     root: {
         marginHorizontal: 2,
@@ -21,17 +23,24 @@ const styles = StyleSheet.create({
     }
 });
 
-const Loading: React.FC = () => (
-    <Card style={styles.root}>
-        <Card.Content style={styles.cardItem}>
-            <ActivityIndicator
-                animating={true}
-                size={32}
-            />
+const Loading: React.FC = () => {
+    const { customColors } = useTheme();
 
-            <Paragraph style={styles.text}>Carregando...</Paragraph>
-        </Card.Content>
-    </Card>
-);
+    return (
+        <Card style={styles.root}>
+            <Card.Content style={styles.cardItem}>
+                <ActivityIndicator
+                    animating={true}
+                    size={32}
+                    color={customColors.textPrimary}
+                />
+
+                <Paragraph style={styles.text}>
+                    Carregando...
+                </Paragraph>
+            </Card.Content>
+        </Card>
+    );
+};
 
 export default Loading;

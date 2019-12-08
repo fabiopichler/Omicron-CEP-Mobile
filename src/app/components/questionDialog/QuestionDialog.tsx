@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { Portal, Dialog, Button, Paragraph } from 'react-native-paper';
 
 import { IQuestionDialogProps } from './IQuestionDialogProps';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     button: {
@@ -23,6 +24,8 @@ const QuestionDialog: React.FC<IQuestionDialogProps> = ({
 }) => {
 
     const [open, setOpen] = React.useState(false);
+
+    const { customColors } = useTheme();
 
     const handleConfirm = (): void => {
         setOpen(false);
@@ -61,6 +64,11 @@ const QuestionDialog: React.FC<IQuestionDialogProps> = ({
                         <Button
                             onPress={handleClose}
                             style={styles.button}
+                            theme={{
+                                colors: {
+                                    primary: customColors.textPrimary
+                                }
+                            }}
                         >
                             Cancelar
                         </Button>
@@ -68,6 +76,11 @@ const QuestionDialog: React.FC<IQuestionDialogProps> = ({
                         <Button
                             onPress={handleConfirm}
                             style={styles.button}
+                            theme={{
+                                colors: {
+                                    primary: customColors.textPrimary
+                                }
+                            }}
                         >
                             Ok
                         </Button>

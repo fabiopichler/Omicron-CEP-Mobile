@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { useTheme } from 'react-native-paper';
 
 import AppHeader from '@/app/components/appHeader/AppHeader';
 import CepForm from './cepForm/CepForm';
@@ -14,6 +13,7 @@ import Info from '../../components/info/Info';
 import { CepScreenContainer } from './CepScreenContainer';
 import { ICepScreenProps } from './ICepScreenProps';
 import { Status } from '../../../models/Status';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     root: {

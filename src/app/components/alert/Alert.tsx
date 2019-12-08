@@ -5,13 +5,13 @@ import { StyleSheet } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 
 import { IAlertProps, AlertType } from './IAlertProps';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     root: {
         marginHorizontal: 2,
         marginBottom: 16,
         borderRadius: 0,
-        elevation: 1,
     },
     cardItem: {
         flexDirection: 'row',
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     'text-warning': {
+        color: '#111',
     },
     'text-error': {
         color: 'white',
@@ -47,19 +48,42 @@ const styles = StyleSheet.create({
 const Alert: React.FC<IAlertProps> = ({
     type = 'info',
     children,
-}) => (
-    <Card style={[styles.root, styles[type]]}>
-        <Card.Content style={styles.cardItem}>
-            <Icon
-                name={type}
-                style={[styles.icon, styles[`text-${type}` as AlertType]]}
-            />
+}) => {
 
-            <Text style={[styles.text, styles[`text-${type}` as AlertType]]}>
-                {children}
-            </Text>
-        </Card.Content>
-    </Card>
-);
+    const {
+        dark,
+    } = useTheme();
+
+    return (
+        <Card
+            style={[
+                styles.root,
+                styles[type],
+                {
+                    elevation: dark ? 0 : 1,
+                }
+            ]}
+        >
+            <Card.Content style={styles.cardItem}>
+                <Icon
+                    name={type}
+                    style={[
+                        styles.icon,
+                        styles[`text-${type}` as AlertType]
+                    ]}
+                />
+
+                <Text
+                    style={[
+                        styles.text,
+                        styles[`text-${type}` as AlertType]
+                    ]}
+                >
+                    {children}
+                </Text>
+            </Card.Content>
+        </Card>
+    );
+}
 
 export default Alert;

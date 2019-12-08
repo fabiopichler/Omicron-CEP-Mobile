@@ -6,6 +6,7 @@ import { Card, Paragraph, Button } from 'react-native-paper';
 import Title from '../../../components/title/Title';
 
 import { Config } from '@/config';
+import { useTheme } from '@/themes/theme';
 
 const { appVersion } = Config;
 
@@ -29,6 +30,8 @@ const styles = StyleSheet.create({
 });
 
 const AboutSceneTab: React.FC = () => {
+
+    const { customColors } = useTheme();
 
     const handleOpenURL = (url: string) => () => {
         Linking.openURL(url).catch((err) => console.error('An error occurred', err));
@@ -83,6 +86,11 @@ const AboutSceneTab: React.FC = () => {
                         icon="home"
                         mode="text"
                         onPress={handleOpenURL('https://fabiopichler.net/omicron-cep')}
+                        theme={{
+                            colors: {
+                                primary: customColors.textPrimary
+                            }
+                        }}
                     >
                         Site oficial
                     </Button>
