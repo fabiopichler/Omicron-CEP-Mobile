@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { Title as TitlePaper, Text } from 'react-native-paper';
 
 import { ITitleProps } from './ITitleProps';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     root: {
@@ -13,28 +14,34 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 16,
     },
-    color: {
-        color: '#666',
-    }
 });
 
 const Title: React.FC<ITitleProps> = ({
     title,
     desc,
-}) => (
-    <View style={styles.root}>
-        <TitlePaper
-            style={styles.color}
-        >
-            {title}
-        </TitlePaper>
+}) => {
+    const {
+        title: titleColor,
+        textSecondary,
+    } = useTheme().customColors;
 
-        <Text
-            style={[styles.text, styles.color]}
-        >
-            {desc}
-        </Text>
-    </View>
-);
+    return (
+        <View style={styles.root}>
+            <TitlePaper
+                style={{ color: titleColor }}
+            >
+                {title}
+            </TitlePaper>
+
+            <Text
+                style={[styles.text, {
+                    color: textSecondary
+                }]}
+            >
+                {desc}
+            </Text>
+        </View>
+    );
+}
 
 export default Title;

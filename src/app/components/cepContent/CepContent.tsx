@@ -2,11 +2,12 @@ import React from 'react';
 import Moment from 'react-moment';
 
 import { StyleSheet } from 'react-native';
-import { Card, Text, Headline, IconButton, Colors, useTheme } from 'react-native-paper';
+import { Card, Text, Headline, IconButton, Colors } from 'react-native-paper';
 
 import QuestionDialog from '../questionDialog/QuestionDialog';
 
 import { ICepContentProps } from './ICepContentProps';
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     root: {
@@ -14,7 +15,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 2,
         marginBottom: 16,
         borderRadius: 0,
-        elevation: 1,
     },
     cardItem: {
         marginTop: 12,
@@ -25,12 +25,10 @@ const styles = StyleSheet.create({
     },
     body1: {
         fontWeight: 'bold',
-        color: '#777',
         lineHeight: 26,
         fontSize: 16,
     },
     date: {
-        color: '#777',
         fontSize: 14,
     },
     closeButton: {
@@ -47,11 +45,21 @@ const CepContent: React.FC<ICepContentProps> = ({
     onCepDelete,
 }) => {
 
-    const { colors } = useTheme();
-    const textPrimary = { color: colors.accent };
+    const {
+        dark,
+        customColors,
+    } = useTheme();
+
+    const textPrimary = {
+        color: customColors.textPrimary,
+    };
+
+    const textSecondary = {
+        color: customColors.textSecondary,
+    };
 
     return (
-        <Card style={styles.root}>
+        <Card style={[styles.root, { elevation: dark ? 0 : 1 }]}>
             {onCepDelete ? (
                 <QuestionDialog
                     title="Remover CEP"
@@ -79,7 +87,7 @@ const CepContent: React.FC<ICepContentProps> = ({
                 </Headline>
 
                 {!hideDate ? (
-                    <Text style={styles.date}>
+                    <Text style={[styles.date, textSecondary]}>
                         Pesquisado
 
                         {' '}
@@ -90,13 +98,13 @@ const CepContent: React.FC<ICepContentProps> = ({
                             titleFormat="LLL"
                             date={cep.date}
                             element={Text}
-                            style={styles.date}
+                            style={[styles.date, textSecondary] as any}
                         />
                     </Text>
                 ) : null}
 
                 <Text
-                    style={[styles.body1, styles.marginTop1]}
+                    style={[styles.body1, styles.marginTop1, textSecondary]}
                 >
                     Logradouro:
 
@@ -108,7 +116,7 @@ const CepContent: React.FC<ICepContentProps> = ({
                 </Text>
 
                 <Text
-                    style={styles.body1}
+                    style={[styles.body1, textSecondary]}
                 >
                     Bairro:
 
@@ -120,7 +128,7 @@ const CepContent: React.FC<ICepContentProps> = ({
                 </Text>
 
                 <Text
-                    style={styles.body1}
+                    style={[styles.body1, textSecondary]}
                 >
                     Cidade/Estado:
 
