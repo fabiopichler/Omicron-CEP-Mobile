@@ -40,9 +40,9 @@ export const darkTheme: ITheme = {
     mode: 'exact',
     colors: {
         ...DarkTheme.colors,
-        primary: '#004636',
-        accent: '#005540',
-        surface: '#292929',
+        primary: '#2c2c2c',
+        accent: '#3a3a3a',
+        surface: '#262626',
         text: 'white',
     },
     customColors: {

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         marginBottom: 2,
         lineHeight: 15,
         fontSize: 13,
-        color: '#9cb',
+        color: 'rgba(240,240,240,.7)',
     },
     text: {
         color: 'white',
