@@ -42,7 +42,7 @@ export const darkTheme: ITheme = {
         ...DarkTheme.colors,
         primary: '#2c2c2c',
         accent: '#3a3a3a',
-        surface: '#262626',
+        surface: '#252525',
         text: 'white',
     },
     customColors: {
