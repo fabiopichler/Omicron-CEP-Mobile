@@ -170,12 +170,16 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
                                 <Picker
                                     selectedValue={uf}
                                     onValueChange={handleChangeUf}
-                                    style={styles.picker}
+                                    style={[styles.picker, { color: customColors.textSecondary } as any]}
                                 >
                                     <Picker.Item label="" value="" />
 
                                     {UfList.map((uf, index) => (
-                                        <Picker.Item label={`${uf[1]} (${uf[0]})`} value={uf[0]} key={index} />
+                                        <Picker.Item
+                                            label={`${uf[1]} (${uf[0]})`}
+                                            value={uf[0]}
+                                            key={index}
+                                        />
                                     ))}
                                 </Picker>
                             )}

@@ -35,7 +35,7 @@ const CepForm: React.FC<ICepFormProps> = ({
     setCurrentSearch,
 }) => {
 
-    const { colors } = useTheme();
+    const { dark, colors } = useTheme();
 
     const [cep, setCep] = React.useState('');
     const [focus, setFocus] = React.useState(false);
@@ -74,12 +74,12 @@ const CepForm: React.FC<ICepFormProps> = ({
                         roundness: 0,
                         colors: {
                             primary: 'rgba(0,0,0,.6)',
-                            text: focus ? 'black' : 'white',
-                            placeholder: 'rgba(255,255,255,.9)',
+                            text: focus && !dark ? 'black' : 'white',
+                            placeholder: 'rgba(255,255,255,.8)',
                             background: colors.accent
                         }
                     }}
-                    underlineColor="rgba(255,255,255,.9)"
+                    underlineColor={dark ? 'transparent' : 'rgba(255,255,255,.9)'}
                     maxLength={9}
                     style={styles.textInput}
                     value={cep}

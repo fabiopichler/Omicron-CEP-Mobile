@@ -22,18 +22,12 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
     },
-    darkModeView: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginRight: 8,
-    },
-    darkModeText: {
-        marginRight: 8,
-        fontSize: 18,
+    titleStyle: {
+        textAlign: 'right',
         lineHeight: 21,
-        letterSpacing: 0.5,
-        fontWeight: 'bold',
-        color: 'white',
+    },
+    darkModeSwitch: {
+        marginRight: 8,
     },
     wrapper: {
         flexGrow: 1,
@@ -79,21 +73,18 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
         >
             <View style={[styles.root, { backgroundColor: colors.primary }]}>
                 <AppHeader
+                    title="Modo escuro"
+                    titleStyle={styles.titleStyle}
                     noShadow
                     noMenu
                     onDrawerOpen={openDrawer}
                     contentRight={
-                        <View style={styles.darkModeView}>
-                            <Text style={styles.darkModeText}>
-                                Modo escuro
-                            </Text>
-
-                            <Switch
-                                value={darkModeEnabled!}
-                                onValueChange={changeDarkMode}
-                                color={customColors.textPrimary}
-                            />
-                        </View>
+                        <Switch
+                            value={darkModeEnabled!}
+                            onValueChange={changeDarkMode}
+                            color={customColors.textPrimary}
+                            style={styles.darkModeSwitch}
+                        />
                     }
                 />
 
