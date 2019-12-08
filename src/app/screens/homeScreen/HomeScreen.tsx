@@ -3,14 +3,16 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { Headline, useTheme } from 'react-native-paper';
+import { Headline, Switch, Text } from 'react-native-paper';
 
 import Logo from '@/assets/images/logo.svg';
 import AppHeader from '@/app/components/appHeader/AppHeader';
 import HomeDrawer from './homeDrawer/HomeDrawer';
 import HomeButton from './homeButton/HomeButton';
+
+import { useTheme } from '@/themes/theme';
 
 const styles = StyleSheet.create({
     root: {
@@ -18,6 +20,18 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         flexGrow: 1,
+    },
+    darkModeView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 8,
+    },
+    darkModeText: {
+        marginRight: 8,
+        fontSize: 18,
+        lineHeight: 21,
+        letterSpacing: 0.5,
+        fontWeight: 'bold',
     },
     wrapper: {
         flexGrow: 1,
@@ -43,7 +57,7 @@ const styles = StyleSheet.create({
 const HomeScreen: React.FC<NavigationStackScreenProps> = ({
     navigation,
 }) => {
-    const { colors } = useTheme();
+    const { colors, customColors } = useTheme();
 
     const drawerRef = React.useRef<DrawerLayout>(null);
 
@@ -59,10 +73,22 @@ const HomeScreen: React.FC<NavigationStackScreenProps> = ({
         >
             <View style={[styles.root, { backgroundColor: colors.primary }]}>
                 <AppHeader
-                    title="Buscas por CEP e endereço"
                     noShadow
                     noMenu
                     onDrawerOpen={openDrawer}
+                    contentRight={
+                        <View style={styles.darkModeView}>
+                            <Text style={styles.darkModeText}>
+                                Modo escuro
+                            </Text>
+
+                            <Switch
+                                value={false}
+                                onValueChange={() => { }}
+                                color={customColors.textPrimary}
+                            />
+                        </View>
+                    }
                 />
 
                 <ScrollView

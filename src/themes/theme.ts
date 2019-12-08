@@ -40,13 +40,13 @@ export const darkTheme: ITheme = {
     mode: 'exact',
     colors: {
         ...DarkTheme.colors,
-        primary: '#004640',
-        accent: '#00554e',
-        surface: '#303030',
+        primary: '#004636',
+        accent: '#005540',
+        surface: '#292929',
         text: 'white',
     },
     customColors: {
-        primaryDark: '#00403a',
+        primaryDark: '#00402f',
         backgroundSecondary: '#262626',
         title: '#5b8',
         textPrimary: '#5b8',

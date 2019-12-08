@@ -25,6 +25,7 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
     titleStyle,
     subtitle,
     subtitleStyle,
+    contentRight,
     noLeft,
     noMenu,
     noShadow,
@@ -64,6 +65,8 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
                 subtitleStyle={subtitleStyle}
                 style={styles.content}
             />
+
+            {contentRight}
 
             {noMenu ? null : (
                 <Menu
