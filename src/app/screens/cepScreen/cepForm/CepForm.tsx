@@ -79,7 +79,7 @@ const CepForm: React.FC<ICepFormProps> = ({
                             background: colors.accent
                         }
                     }}
-                    underlineColor={dark ? 'transparent' : 'rgba(255,255,255,.9)'}
+                    underlineColor="transparent"
                     maxLength={9}
                     style={styles.textInput}
                     value={cep}

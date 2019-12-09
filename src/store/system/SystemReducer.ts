@@ -19,7 +19,7 @@ export const SystemReducer = (state: ISystemState = initialState, actions: ISyst
         case SYSTEM_DARK_MODE_INIT:
             return {
                 ...state,
-                darkModeEnabled: payload === 'enabled' ? true : false,
+                darkModeEnabled: payload === 'enabled',
             };
 
         case SYSTEM_DARK_MODE: {
