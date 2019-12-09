@@ -11,12 +11,13 @@ export const darkTheme: ITheme = {
         accent: '#3a3a3a',
         surface: '#252525',
         text: 'white',
+        background: '#181818'
     },
     customColors: {
-        primaryDark: '#00402f',
+        primaryDark: '#004029',
         backgroundSecondary: '#262626',
-        title: '#5b8',
-        textPrimary: '#5b8',
+        title: '#3b8',
+        textPrimary: '#3b8',
         textSecondary: 'rgba(255,255,255,.8)',
     },
     customStyles: {
