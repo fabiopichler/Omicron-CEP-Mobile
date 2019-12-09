@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { StatusBar, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Appbar, Menu } from 'react-native-paper';
 
 import MenuList from '../menuList/MenuList';
 
+import { statusBarCurrentHeight } from '@/app/helpers/system';
 import { IAppHeaderProps } from './IAppHeaderProps';
 
 const styles = StyleSheet.create({
@@ -39,7 +40,7 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
         <Appbar.Header
             style={{
                 elevation: noShadow ? 0 : 4,
-                marginTop: StatusBar.currentHeight,
+                marginTop: statusBarCurrentHeight,
             }}
         >
             {noLeft ? null : (
@@ -72,7 +73,7 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
                 <Menu
                     onDismiss={() => setMenuVisible(false)}
                     visible={menuVisible}
-                    style={{ marginTop: StatusBar.currentHeight }}
+                    style={{ marginTop: statusBarCurrentHeight }}
                     anchor={
                         <Appbar.Action
                             icon="dots-vertical"

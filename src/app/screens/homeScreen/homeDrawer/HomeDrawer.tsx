@@ -1,13 +1,14 @@
 import React from 'react';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
-import { View, ScrollView, StatusBar, StyleSheet, Text, Platform, Animated } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, Platform, Animated } from 'react-native';
 import { Title } from 'react-native-paper';
 
 import MenuList from '@/app/components/menuList/MenuList';
 import Logo from '@/assets/images/logo.svg';
 
 import { Config } from '@/config';
+import { statusBarCurrentHeight } from '@/app/helpers/system';
 import { IHomeDrawerProps } from './IHomeDrawerProps';
 import { useTheme } from '@/themes/theme';
 
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     drawerTopBar: {
         position: 'absolute',
         width: '100%',
-        height: StatusBar.currentHeight,
+        height: statusBarCurrentHeight,
         backgroundColor: 'rgba(0,0,0,.2)',
         top: 0,
         right: 0,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     drawerHeader: {
         height: 200,
         marginBottom: 8,
-        paddingTop: StatusBar.currentHeight,
+        paddingTop: statusBarCurrentHeight,
     },
     drawerHeaderContent: {
         flexGrow: 1,
