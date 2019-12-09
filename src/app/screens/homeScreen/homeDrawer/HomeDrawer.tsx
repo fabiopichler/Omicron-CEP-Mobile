@@ -8,7 +8,7 @@ import MenuList from '@/app/components/menuList/MenuList';
 import Logo from '@/assets/images/logo.svg';
 
 import { Config } from '@/config';
-import { statusBarCurrentHeight } from '@/app/helpers/system';
+import { statusBarCurrentHeight } from '@/helpers/system';
 import { IHomeDrawerProps } from './IHomeDrawerProps';
 import { useTheme } from '@/themes/theme';
 
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     drawerHeader: {
-        height: 200,
+        height: 176 + statusBarCurrentHeight,
         marginBottom: 8,
         paddingTop: statusBarCurrentHeight,
     },

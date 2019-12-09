@@ -6,7 +6,7 @@ import { Appbar, Menu } from 'react-native-paper';
 
 import MenuList from '../menuList/MenuList';
 
-import { statusBarCurrentHeight } from '@/app/helpers/system';
+import { statusBarCurrentHeight } from '@/helpers/system';
 import { IAppHeaderProps } from './IAppHeaderProps';
 
 const styles = StyleSheet.create({
