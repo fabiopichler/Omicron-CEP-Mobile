@@ -11,7 +11,7 @@ export const darkTheme: ITheme = {
         accent: '#3a3a3a',
         surface: '#252525',
         text: 'white',
-        background: '#181818'
+        background: '#191919'
     },
     customColors: {
         primaryDark: '#004029',
