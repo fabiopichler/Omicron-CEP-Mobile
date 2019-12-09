@@ -7,17 +7,17 @@ export const darkTheme: ITheme = {
     mode: 'exact',
     colors: {
         ...DarkTheme.colors,
-        primary: '#2c2c2c',
-        accent: '#3a3a3a',
-        surface: '#252525',
+        primary: '#003020',
+        accent: '#003927',
+        surface: '#2a2a2a',
         text: 'white',
-        background: '#191919'
+        background: '#1e1e1e'
     },
     customColors: {
-        primaryDark: '#004029',
+        primaryDark: '#002a1a',
         backgroundSecondary: '#262626',
-        title: '#3b8',
-        textPrimary: '#3b8',
+        title: '#2a7',
+        textPrimary: '#2a7',
         textSecondary: 'rgba(255,255,255,.8)',
     },
     customStyles: {
