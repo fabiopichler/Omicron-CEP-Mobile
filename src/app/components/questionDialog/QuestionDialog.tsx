@@ -66,7 +66,7 @@ const QuestionDialog: React.FC<IQuestionDialogProps> = ({
                             style={styles.button}
                             theme={{
                                 colors: {
-                                    primary: customColors.textPrimary
+                                    primary: customColors.button
                                 }
                             }}
                         >
@@ -78,7 +78,7 @@ const QuestionDialog: React.FC<IQuestionDialogProps> = ({
                             style={styles.button}
                             theme={{
                                 colors: {
-                                    primary: customColors.textPrimary
+                                    primary: customColors.button
                                 }
                             }}
                         >

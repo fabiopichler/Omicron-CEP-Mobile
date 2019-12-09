@@ -198,7 +198,7 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
                             onPress={handleCancel}
                             theme={{
                                 colors: {
-                                    primary: customColors.textPrimary
+                                    primary: customColors.button
                                 }
                             }}
                         >
@@ -209,7 +209,7 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
                             onPress={handleStartSearch}
                             theme={{
                                 colors: {
-                                    primary: customColors.textPrimary
+                                    primary: customColors.button
                                 }
                             }}
                         >

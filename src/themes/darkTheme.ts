@@ -17,8 +17,9 @@ export const darkTheme: ITheme = {
         primaryDark: '#003a37',
         backgroundSecondary: '#232931',
         title: '#4ecca3',
-        textPrimary: '#4ecca3',
+        textPrimary: 'rgba(255,255,255,.8)',
         textSecondary: 'rgba(255,255,255,.8)',
+        button: '#4ecca3',
     },
     customStyles: {
         card: {

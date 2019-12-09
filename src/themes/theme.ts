@@ -10,6 +10,7 @@ export interface IThemeCustomColors {
     title: string;
     textPrimary: string;
     textSecondary: string;
+    button: string;
 }
 
 export interface IThemeCustomStyles {

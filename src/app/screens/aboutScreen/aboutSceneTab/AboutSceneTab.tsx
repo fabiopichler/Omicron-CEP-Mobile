@@ -86,7 +86,7 @@ const AboutSceneTab: React.FC = () => {
                         onPress={handleOpenURL('https://fabiopichler.net/omicron-cep')}
                         theme={{
                             colors: {
-                                primary: customColors.textPrimary
+                                primary: customColors.button
                             }
                         }}
                     >

@@ -17,6 +17,7 @@ export const defaultTheme: ITheme = {
         title: '#666',
         textPrimary: '#00795c',
         textSecondary: '#666',
+        button: '#00795c',
     },
     customStyles: {
         card: {
