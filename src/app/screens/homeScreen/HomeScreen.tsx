@@ -82,7 +82,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
                         <Switch
                             value={darkModeEnabled!}
                             onValueChange={changeDarkMode}
-                            color={customColors.textPrimary}
+                            color={customColors.title}
                             style={styles.darkModeSwitch}
                         />
                     }

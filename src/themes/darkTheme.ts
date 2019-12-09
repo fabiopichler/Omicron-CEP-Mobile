@@ -17,12 +17,12 @@ export const darkTheme: ITheme = {
         primaryDark: '#002a1a',
         backgroundSecondary: '#262626',
         title: '#2a7',
-        textPrimary: '#2a7',
+        textPrimary: 'rgba(255,255,255,.8)',
         textSecondary: 'rgba(255,255,255,.8)',
     },
     customStyles: {
         card: {
-            borderRadius: 12,
+            borderRadius: 8,
             elevation: 0,
         }
     }
