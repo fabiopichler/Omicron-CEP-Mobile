@@ -24,10 +24,13 @@ const styles = StyleSheet.create({
 });
 
 const Loading: React.FC = () => {
-    const { customColors } = useTheme();
+    const {
+        customColors,
+        customStyles,
+    } = useTheme();
 
     return (
-        <Card style={styles.root}>
+        <Card style={[styles.root, customStyles.card]}>
             <Card.Content style={styles.cardItem}>
                 <ActivityIndicator
                     animating={true}

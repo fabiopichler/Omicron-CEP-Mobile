@@ -51,7 +51,7 @@ const Alert: React.FC<IAlertProps> = ({
 }) => {
 
     const {
-        dark,
+        customStyles,
     } = useTheme();
 
     return (
@@ -59,9 +59,7 @@ const Alert: React.FC<IAlertProps> = ({
             style={[
                 styles.root,
                 styles[type],
-                {
-                    elevation: dark ? 0 : 1,
-                }
+                customStyles.card,
             ]}
         >
             <Card.Content style={styles.cardItem}>
