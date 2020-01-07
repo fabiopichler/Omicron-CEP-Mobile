@@ -8,7 +8,7 @@ export const darkTheme: ITheme = {
     colors: {
         ...DarkTheme.colors,
         primary: '#263859',
-        accent: '#364869',
+        accent: '#324869',
         background: '#242424',
         surface: '#333333',
         text: 'white',
