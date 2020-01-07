@@ -123,7 +123,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
 
                     <View style={styles.footer}>
                         <Text style={styles.textfooter}>
-                            &copy; 2019, Fábio Pichler
+                            &copy; 2019-2020 Fábio Pichler
                         </Text>
                     </View>
                 </ScrollView>
