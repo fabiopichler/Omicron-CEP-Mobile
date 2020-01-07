@@ -7,23 +7,23 @@ export const darkTheme: ITheme = {
     mode: 'exact',
     colors: {
         ...DarkTheme.colors,
-        primary: '#044343',
-        accent: '#0f4e4e',
-        background: '#232931',
-        surface: '#393e46',
+        primary: '#263859',
+        accent: '#364869',
+        background: '#242424',
+        surface: '#333333',
         text: 'white',
     },
     customColors: {
-        primaryDark: '#003a37',
-        backgroundSecondary: '#232931',
-        title: '#4ecca3',
+        primaryDark: '#203253',
+        backgroundSecondary: '#2d2d2d',
+        title: '#77abb7',
         textPrimary: 'rgba(255,255,255,.8)',
         textSecondary: 'rgba(255,255,255,.8)',
-        button: '#4ecca3',
+        button: '#77abb7',
     },
     customStyles: {
         card: {
-            borderRadius: 6,
+            borderRadius: 0,
             elevation: 0,
         }
     }
