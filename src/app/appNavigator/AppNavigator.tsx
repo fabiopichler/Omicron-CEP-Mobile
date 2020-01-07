@@ -1,5 +1,5 @@
 import { createAppContainer, } from 'react-navigation';
-import { createStackNavigator, StackViewTransitionConfigs } from 'react-navigation-stack';
+import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
 
 import HomeScreen from '../screens/homeScreen/HomeScreen';
 import CepScreen from '../screens/cepScreen/CepScreen';
@@ -15,7 +15,9 @@ const AppNavigator = createStackNavigator(
     }, {
         initialRouteName: 'Home',
         headerMode: 'none',
-        transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
+        defaultNavigationOptions: {
+            ...TransitionPresets.SlideFromRightIOS,
+        },
     }
 );
 
