@@ -8,7 +8,7 @@ export const darkTheme: ITheme = {
     colors: {
         ...DarkTheme.colors,
         primary: '#263859',
-        accent: '#324869',
+        accent: '#2d456a',
         background: '#242424',
         surface: '#333333',
         text: 'white',
@@ -16,10 +16,10 @@ export const darkTheme: ITheme = {
     customColors: {
         primaryDark: '#203253',
         backgroundSecondary: '#2d2d2d',
-        title: '#77abb7',
+        title: '#77abc7',
         textPrimary: 'rgba(255,255,255,.8)',
         textSecondary: 'rgba(255,255,255,.8)',
-        button: '#77abb7',
+        button: '#44aacc',
     },
     customStyles: {
         card: {
