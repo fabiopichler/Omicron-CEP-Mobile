@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyleSheet } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { useNavigation } from '@react-navigation/core';
 import { Appbar, Menu } from 'react-native-paper';
 
 import MenuList from '../menuList/MenuList';
@@ -31,8 +31,9 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
     noMenu,
     noShadow,
     onDrawerOpen,
-    navigation,
 }) => {
+
+    const navigation = useNavigation();
 
     const [menuVisible, setMenuVisible] = React.useState(false);
 
@@ -53,7 +54,7 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
                     />
                 ) : (
                     <Appbar.BackAction
-                        onPress={() => { navigation.goBack() || navigation.navigate('Home') }}
+                        onPress={navigation.goBack}
                         style={styles.action}
                     />
                 )
@@ -83,7 +84,6 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
                     }
                 >
                     <MenuList
-                        navigation={navigation}
                         onItemPress={() => setMenuVisible(false)}
                     />
                 </Menu>
@@ -92,4 +92,4 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
     );
 };
 
-export default withNavigation(AppHeader);
+export default AppHeader;

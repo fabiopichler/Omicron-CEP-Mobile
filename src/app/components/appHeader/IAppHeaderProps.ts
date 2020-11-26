@@ -1,5 +1,4 @@
 import { StyleProp, TextStyle } from "react-native";
-import { NavigationStackProp } from "react-navigation-stack";
 
 export interface IAppHeaderProps {
     title?: React.ReactNode;
@@ -11,5 +10,4 @@ export interface IAppHeaderProps {
     noMenu?: boolean;
     noShadow?: boolean;
     onDrawerOpen?: () => void;
-    navigation: NavigationStackProp;
 };

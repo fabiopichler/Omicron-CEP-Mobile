@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { Dimensions, StyleSheet } from 'react-native';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useTheme } from 'react-native-paper';
 
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const AboutScreen: React.FC<NavigationStackScreenProps> = () => {
+const AboutScreen: React.FC = () => {
 
     const { colors } = useTheme();
 

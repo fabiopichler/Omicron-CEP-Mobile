@@ -1,9 +1,7 @@
-import { NavigationStackScreenProps } from "react-navigation-stack";
-
 import { IAddress } from "../../../models/IAddress";
 import { IAddressState } from "@/store/address/IAddressState";
 
-export interface IAddressScreenProps extends NavigationStackScreenProps {
+export interface IAddressScreenProps {
     addressState: IAddressState;
     onCheckByAddress: (address: IAddress) => void;
 }

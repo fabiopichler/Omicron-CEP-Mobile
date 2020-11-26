@@ -1,14 +1,16 @@
 import React from 'react';
 
 import { Linking, BackHandler } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { Menu, Divider } from 'react-native-paper';
 
 import { IMenuListProps } from './IMenuListProps';
 
 const MenuList: React.FC<IMenuListProps> = ({
     onItemPress,
-    navigation,
 }) => {
+
+    const navigation = useNavigation();
 
     const handleNavigate = (routeName: string) => () => {
         onItemPress();
@@ -44,7 +46,7 @@ const MenuList: React.FC<IMenuListProps> = ({
 
             <Menu.Item
                 title="Página no Facebook"
-                icon="facebook-box"
+                icon="facebook"
                 onPress={handleOpenURL('https://www.facebook.com/fabiopichler.net')}
             />
 

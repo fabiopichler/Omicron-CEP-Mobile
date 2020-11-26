@@ -4,6 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { View, StyleSheet, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { Headline, Switch, Text } from 'react-native-paper';
 
 import Logo from '@/assets/images/logo.svg';
@@ -51,12 +52,13 @@ const styles = StyleSheet.create({
 });
 
 const HomeScreen: React.FC<IHomeScreenProps> = ({
-    navigation,
     systemState: {
         darkModeEnabled,
     },
     changeDarkMode,
 }) => {
+    const navigation = useNavigation();
+    
     const { colors, customColors } = useTheme();
 
     const drawerRef = React.useRef<DrawerLayout>(null);
@@ -67,10 +69,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
     }
 
     return (
-        <HomeDrawer
-            ref={drawerRef}
-            navigation={navigation}
-        >
+        <HomeDrawer ref={drawerRef}>
             <View style={[styles.root, { backgroundColor: colors.primary }]}>
                 <AppHeader
                     title="Modo escuro"

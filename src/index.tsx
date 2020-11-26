@@ -1,5 +1,9 @@
 import './declare-modules.d.ts';
 
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
+
 import 'react-native-gesture-handler';
 import 'moment-timezone';
 import 'moment/locale/pt-br';

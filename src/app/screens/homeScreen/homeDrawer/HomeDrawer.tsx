@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
 
 const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
     children,
-    navigation,
 }, ref) => {
 
     const {
@@ -122,7 +121,6 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
 
                     <View style={styles.drawerViewMenuList}>
                         <MenuList
-                            navigation={navigation}
                             onItemPress={() => closeDrawer()}
                         />
                     </View>
