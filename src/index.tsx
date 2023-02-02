@@ -19,10 +19,10 @@ Moment.globalMoment = moment;
 Moment.globalLocale = 'pt-br';
 Moment.globalLocal = true;
 
-const Index: React.FC = () => (
+const Main: React.FC = () => (
     <StoreProvider store={store}>
         <App />
     </StoreProvider>
 );
 
-AppRegistry.registerComponent(appName, () => Index);
+AppRegistry.registerComponent(appName, () => Main);

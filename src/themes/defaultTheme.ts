@@ -1,11 +1,11 @@
-import { DefaultTheme } from "react-native-paper";
+import { MD2LightTheme } from "react-native-paper";
 
 import { ITheme } from "./theme";
 
 export const defaultTheme: ITheme = {
-    ...DefaultTheme,
+    ...MD2LightTheme,
     colors: {
-        ...DefaultTheme.colors,
+        ...MD2LightTheme.colors,
         primary: '#00795c',
         accent: '#008868',
         background: '#e9eaeb',

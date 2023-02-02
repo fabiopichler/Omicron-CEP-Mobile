@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 
 import { StyleSheet } from 'react-native';
-import { Card, Text, IconButton, Colors, Headline } from 'react-native-paper';
+import { Card, Text, IconButton, MD2Colors as Colors, Headline } from 'react-native-paper';
 
 import QuestionDialog from '../questionDialog/QuestionDialog';
 

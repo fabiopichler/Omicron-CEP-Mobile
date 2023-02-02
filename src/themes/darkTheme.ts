@@ -1,12 +1,12 @@
-import { DarkTheme } from "react-native-paper";
+import { MD2DarkTheme } from "react-native-paper";
 
 import { ITheme } from "./theme";
 
 export const darkTheme: ITheme = {
-    ...DarkTheme,
+    ...MD2DarkTheme,
     mode: 'exact',
     colors: {
-        ...DarkTheme.colors,
+        ...MD2DarkTheme.colors,
         primary: '#263859',
         accent: '#2d456a',
         background: '#242424',
