@@ -1,10 +1,5 @@
 import './declare-modules.d.ts';
 
-import { enableScreens } from 'react-native-screens';
-
-enableScreens();
-
-import 'react-native-gesture-handler';
 import 'moment-timezone';
 import 'moment/locale/pt-br';
 
@@ -18,6 +13,7 @@ import { Provider as StoreProvider } from 'react-redux';
 import App from './app/App';
 
 import { store } from './store/store';
+import { name as appName } from '../app.json';
 
 Moment.globalMoment = moment;
 Moment.globalLocale = 'pt-br';
@@ -29,4 +25,4 @@ const Index: React.FC = () => (
     </StoreProvider>
 );
 
-AppRegistry.registerComponent('OmicronCEP', () => Index);
+AppRegistry.registerComponent(appName, () => Index);

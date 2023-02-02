@@ -12,8 +12,6 @@ import { statusBarCurrentHeight } from '@/helpers/system';
 import { IHomeDrawerProps } from './IHomeDrawerProps';
 import { useTheme } from '@/themes/theme';
 
-const DrawerLayoutAny: any = DrawerLayout; // <-- RTA 😱 (Recurso Técnico Alternativo)
-
 const styles = StyleSheet.create({
     drawerAnimatedView: {
         flexGrow: 1,
@@ -136,7 +134,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
     };
 
     return (
-        <DrawerLayoutAny
+        <DrawerLayout
             ref={ref}
             drawerWidth={270}
             edgeWidth={40}
@@ -162,7 +160,7 @@ const HomeDrawer = React.forwardRef<DrawerLayout, IHomeDrawerProps>(({
             }
         >
             {children}
-        </DrawerLayoutAny>
+        </DrawerLayout>
     );
 });
 

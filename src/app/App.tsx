@@ -3,6 +3,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 import { StatusBar } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import AppNavigator from './appNavigator/AppNavigator';
 
@@ -40,11 +41,13 @@ const App: React.FC<IAppProps> = ({
         return null;
 
     return (
-        <PaperProvider
-            theme={darkModeEnabled ? darkTheme : defaultTheme}
-        >
-            <AppNavigator />
-        </PaperProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <PaperProvider
+                theme={darkModeEnabled ? darkTheme : defaultTheme}
+            >
+                <AppNavigator />
+            </PaperProvider>
+        </GestureHandlerRootView>
     );
 };
 

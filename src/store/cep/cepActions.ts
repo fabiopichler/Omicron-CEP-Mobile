@@ -25,7 +25,7 @@ export const checkCep = (cep: string) => (
     async (dispatch: (param: ICepAction) => void) => {
         dispatch({ type: CEP_START, payload: cep });
 
-        const url = `https://viacep.com.br/ws/${cep}/json/unicode/`;
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
 
         try {
             const { data } = await axios.get<IViaCEP>(url);

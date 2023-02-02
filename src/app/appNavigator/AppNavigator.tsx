@@ -1,22 +1,21 @@
 import React from 'react';
 
-import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../screens/homeScreen/HomeScreen';
 import CepScreen from '../screens/cepScreen/CepScreen';
 import AddressScreen from '../screens/addressScreen/AddressScreen';
 import AboutScreen from '../screens/aboutScreen/AboutScreen';
 
-const AppStack = createStackNavigator();
+const AppStack = createNativeStackNavigator();
 
 const AppNavigator: React.FC = () => (
     <NavigationContainer>
         <AppStack.Navigator
-            headerMode="none"
             initialRouteName="Home"
             screenOptions={{
-                ...TransitionPresets.SlideFromRightIOS,
+                headerShown: false,
             }}
         >
             <AppStack.Screen

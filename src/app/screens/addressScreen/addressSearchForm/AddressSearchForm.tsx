@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, Picker } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { FAB, Portal, Dialog, Button, TextInput, HelperText } from 'react-native-paper';
+import { Picker } from '@react-native-picker/picker';
 
 import { IAddressSearchFormProps } from './IAddressSearchFormProps';
 import { UfList } from '../../../../data/UfList';
