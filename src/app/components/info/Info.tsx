@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const Info: React.FC = ({
+const Info: React.FC<{ children?: React.ReactNode }> = ({
     children,
 }) => {
 

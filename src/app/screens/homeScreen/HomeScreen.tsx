@@ -58,7 +58,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
     changeDarkMode,
 }) => {
     const navigation = useNavigation();
-    
+
     const { colors, customColors } = useTheme();
 
     const drawerRef = React.useRef<DrawerLayout>(null);
@@ -105,7 +105,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
                             icon={FontAwesome5}
                             iconName="search"
                             iconSize={13}
-                            onPress={() => navigation.navigate('Cep')}
+                            onPress={() => navigation.navigate('Cep' as never)}
                         >
                             CEP
                         </HomeButton>
@@ -114,7 +114,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
                             icon={MaterialCommunityIcons}
                             iconName="map-search"
                             iconSize={18}
-                            onPress={() => navigation.navigate('Address')}
+                            onPress={() => navigation.navigate('Address' as never)}
                         >
                             Endereço
                         </HomeButton>
