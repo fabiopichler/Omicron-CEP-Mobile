@@ -14,7 +14,7 @@ const MenuList: React.FC<IMenuListProps> = ({
 
     const handleNavigate = (routeName: string) => () => {
         onItemPress();
-        navigation.navigate(routeName);
+        navigation.navigate(routeName as never);
     }
 
     const handleOpenURL = (url: string) => () => {
@@ -26,13 +26,13 @@ const MenuList: React.FC<IMenuListProps> = ({
         <>
             <Menu.Item
                 title="Sobre o App"
-                icon="information"
+                leadingIcon="information"
                 onPress={handleNavigate('About')}
             />
 
             <Menu.Item
                 title="Versão Web"
-                icon="web"
+                leadingIcon="web"
                 onPress={handleOpenURL('https://projects.fabiopichler.net/omicron-cep/')}
             />
 
@@ -40,19 +40,19 @@ const MenuList: React.FC<IMenuListProps> = ({
 
             <Menu.Item
                 title="Visitar o website oficial"
-                icon="home"
+                leadingIcon="home"
                 onPress={handleOpenURL('https://fabiopichler.net/omicron-cep')}
             />
 
             <Menu.Item
                 title="Página no Facebook"
-                icon="facebook"
+                leadingIcon="facebook"
                 onPress={handleOpenURL('https://www.facebook.com/fabiopichler.net')}
             />
 
             <Menu.Item
                 title="Perfil no Twitter"
-                icon="twitter"
+                leadingIcon="twitter"
                 onPress={handleOpenURL('https://twitter.com/FabioPichler')}
             />
 
@@ -60,7 +60,7 @@ const MenuList: React.FC<IMenuListProps> = ({
 
             <Menu.Item
                 title="Sair"
-                icon="window-close"
+                leadingIcon="window-close"
                 onPress={() => BackHandler.exitApp()}
             />
         </>

@@ -8,6 +8,7 @@ import moment from 'moment';
 import Moment from 'react-moment';
 
 import { AppRegistry } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { Provider as StoreProvider } from 'react-redux';
 
 import App from './app/App';
@@ -21,7 +22,9 @@ Moment.globalLocal = true;
 
 const Main: React.FC = () => (
     <StoreProvider store={store}>
-        <App />
+        <NavigationContainer>
+            <App />
+        </NavigationContainer>
     </StoreProvider>
 );
 
