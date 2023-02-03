@@ -91,7 +91,7 @@ const CepForm: React.FC<ICepFormProps> = ({
 
                 <IconButton
                     icon="search-web"
-                    color={focus ? 'black' : 'white'}
+                    iconColor={focus ? 'black' : 'white'}
                     style={styles.iconButton}
                     size={28}
                     onPress={handleSubmit}
