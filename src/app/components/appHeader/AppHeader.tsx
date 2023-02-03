@@ -62,7 +62,7 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
 
             <Appbar.Content
                 title={title}
-                titleStyle={[styles.titleStyle, titleStyle]}
+                titleStyle={[styles.titleStyle, titleStyle] as any}
                 subtitle={subtitle}
                 subtitleStyle={subtitleStyle}
                 style={styles.content}
