@@ -45,15 +45,21 @@ const MenuList: React.FC<IMenuListProps> = ({
             />
 
             <Menu.Item
-                title="Página no Facebook"
-                leadingIcon="facebook"
-                onPress={handleOpenURL('https://www.facebook.com/fabiopichler.net')}
+                title="Perfil no Mastodon"
+                leadingIcon="mastodon"
+                onPress={handleOpenURL('https://fabiopichler.net/@FabioPichler')}
             />
 
             <Menu.Item
                 title="Perfil no Twitter"
                 leadingIcon="twitter"
                 onPress={handleOpenURL('https://twitter.com/FabioPichler')}
+            />
+
+            <Menu.Item
+                title="Perfil no GitHub"
+                leadingIcon="github"
+                onPress={handleOpenURL('https://github.com/fabiopichler')}
             />
 
             <Divider />
