@@ -41,7 +41,7 @@ const AppHeader: React.FC<IAppHeaderProps> = ({
         <Appbar.Header
             style={{
                 elevation: noShadow ? 0 : 4,
-                marginTop: statusBarCurrentHeight,
+                /*marginTop: statusBarCurrentHeight,*/
             }}
         >
             {noLeft ? null : (

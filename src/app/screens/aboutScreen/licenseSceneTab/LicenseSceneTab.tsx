@@ -40,7 +40,7 @@ const LicenseSceneTab: React.FC = () => {
                     </Paragraph>
 
                     <Paragraph style={[styles.paragraph, styles.marginBottom2]}>
-                        Copyright (c) 2019-2020 Fábio Pichler
+                        Copyright (c) 2019-2023 Fábio Pichler
                     </Paragraph>
 
                     <Paragraph style={[styles.paragraph, styles.marginBottom2]}>

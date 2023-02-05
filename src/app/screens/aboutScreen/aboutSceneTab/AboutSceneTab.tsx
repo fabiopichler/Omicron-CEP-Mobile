@@ -41,7 +41,7 @@ const AboutSceneTab: React.FC = () => {
 
             <Title
                 title={`Omicron CEP v${appVersion}`}
-                desc="&copy; 2019-2020 Fábio Pichler"
+                desc="&copy; 2019-2023 Fábio Pichler"
             />
 
             <Card style={[styles.card, styles.marginBottom2, customStyles.card]}>
