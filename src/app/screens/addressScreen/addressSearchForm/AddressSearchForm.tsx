@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { StyleSheet } from 'react-native';
-import { FAB, Portal, Dialog, Button, TextInput, HelperText } from 'react-native-paper';
+import { FAB, Dialog, Button, TextInput, HelperText } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
 
 import { IAddressSearchFormProps } from './IAddressSearchFormProps';
 import { UfList } from '../../../../data/UfList';
 import { useTheme } from '@/themes/theme';
+import { withPortal } from '@/helpers/paper';
 
 const styles = StyleSheet.create({
     fab: {
@@ -110,117 +111,115 @@ const AddressSearchForm: React.FC<IAddressSearchFormProps> = ({
                 onPress={handleClickOpen}
             />
 
-            <Portal>
-                <Dialog
-                    visible={open}
-                    onDismiss={handleCancel}
-                >
-                    <Dialog.Title>Endereço para pesquisa</Dialog.Title>
+            <Dialog
+                visible={open}
+                onDismiss={handleCancel}
+            >
+                <Dialog.Title>Endereço para pesquisa</Dialog.Title>
 
-                    <Dialog.Content style={styles.dialogContent}>
-                        <TextInput
-                            label="Logradouro"
-                            returnKeyType="next"
-                            style={styles.textInput}
-                            value={logradouro}
-                            onChangeText={handleChangeLogradouro}
-                            onFocus={() => setLogradouroError(false)}
-                            onBlur={() => setLogradouroError(logradouro.length < 3)}
-                            error={logradouroError}
-                            blurOnSubmit={false}
-                            onSubmitEditing={() => inputCidadeRef.current.focus()}
-                        />
+                <Dialog.Content style={styles.dialogContent}>
+                    <TextInput
+                        label="Logradouro"
+                        returnKeyType="next"
+                        style={styles.textInput}
+                        value={logradouro}
+                        onChangeText={handleChangeLogradouro}
+                        onFocus={() => setLogradouroError(false)}
+                        onBlur={() => setLogradouroError(logradouro.length < 3)}
+                        error={logradouroError}
+                        blurOnSubmit={false}
+                        onSubmitEditing={() => inputCidadeRef.current.focus()}
+                    />
 
-                        <HelperText
-                            type="error"
-                            visible={logradouroError}
-                        >
-                            Insira, no mínimo, 3 caracteres
-                        </HelperText>
+                    <HelperText
+                        type="error"
+                        visible={logradouroError}
+                    >
+                        Insira, no mínimo, 3 caracteres
+                    </HelperText>
 
-                        <TextInput
-                            label="Cidade"
-                            returnKeyType="next"
-                            style={styles.textInput}
-                            value={cidade}
-                            onChangeText={handleChangeCidade}
-                            onFocus={() => setCidadeError(false)}
-                            onBlur={() => setCidadeError(cidade.length < 3)}
-                            error={cidadeError}
-                            ref={inputCidadeRef}
-                            blurOnSubmit={false}
-                            onSubmitEditing={() => inputUfRef.current.focus()}
-                        />
+                    <TextInput
+                        label="Cidade"
+                        returnKeyType="next"
+                        style={styles.textInput}
+                        value={cidade}
+                        onChangeText={handleChangeCidade}
+                        onFocus={() => setCidadeError(false)}
+                        onBlur={() => setCidadeError(cidade.length < 3)}
+                        error={cidadeError}
+                        ref={inputCidadeRef}
+                        blurOnSubmit={false}
+                        onSubmitEditing={() => inputUfRef.current.focus()}
+                    />
 
-                        <HelperText
-                            type="error"
-                            visible={cidadeError}
-                        >
-                            Insira, no mínimo, 3 caracteres
-                        </HelperText>
+                    <HelperText
+                        type="error"
+                        visible={cidadeError}
+                    >
+                        Insira, no mínimo, 3 caracteres
+                    </HelperText>
 
-                        <TextInput
-                            label="Estado (UF)"
-                            style={styles.textInput}
-                            value={uf}
-                            onFocus={() => setUfError(false)}
-                            onBlur={() => setUfError(uf.length != 2)}
-                            error={ufError}
-                            ref={inputUfRef}
-                            render={props => (
-                                <Picker
-                                    selectedValue={uf}
-                                    onValueChange={handleChangeUf}
-                                    style={[styles.picker, { color: customColors.textSecondary } as any]}
-                                >
-                                    <Picker.Item label="" value="" />
+                    <TextInput
+                        label="Estado (UF)"
+                        style={styles.textInput}
+                        value={uf}
+                        onFocus={() => setUfError(false)}
+                        onBlur={() => setUfError(uf.length != 2)}
+                        error={ufError}
+                        ref={inputUfRef}
+                        render={props => (
+                            <Picker
+                                selectedValue={uf}
+                                onValueChange={handleChangeUf}
+                                style={[styles.picker, { color: customColors.textSecondary } as any]}
+                            >
+                                <Picker.Item label="" value="" />
 
-                                    {UfList.map((uf, index) => (
-                                        <Picker.Item
-                                            label={`${uf[1]} (${uf[0]})`}
-                                            value={uf[0]}
-                                            key={index}
-                                        />
-                                    ))}
-                                </Picker>
-                            )}
-                        />
+                                {UfList.map((uf, index) => (
+                                    <Picker.Item
+                                        label={`${uf[1]} (${uf[0]})`}
+                                        value={uf[0]}
+                                        key={index}
+                                    />
+                                ))}
+                            </Picker>
+                        )}
+                    />
 
-                        <HelperText
-                            type="error"
-                            visible={ufError}
-                        >
-                            Selecione um UF
-                        </HelperText>
-                    </Dialog.Content>
+                    <HelperText
+                        type="error"
+                        visible={ufError}
+                    >
+                        Selecione um UF
+                    </HelperText>
+                </Dialog.Content>
 
-                    <Dialog.Actions>
-                        <Button
-                            onPress={handleCancel}
-                            theme={{
-                                colors: {
-                                    primary: customColors.button
-                                }
-                            }}
-                        >
-                            Cancelar
-                        </Button>
+                <Dialog.Actions>
+                    <Button
+                        onPress={handleCancel}
+                        theme={{
+                            colors: {
+                                primary: customColors.button
+                            }
+                        }}
+                    >
+                        Cancelar
+                    </Button>
 
-                        <Button
-                            onPress={handleStartSearch}
-                            theme={{
-                                colors: {
-                                    primary: customColors.button
-                                }
-                            }}
-                        >
-                            Pesquisar
-                        </Button>
-                    </Dialog.Actions>
-                </Dialog>
-            </Portal>
+                    <Button
+                        onPress={handleStartSearch}
+                        theme={{
+                            colors: {
+                                primary: customColors.button
+                            }
+                        }}
+                    >
+                        Pesquisar
+                    </Button>
+                </Dialog.Actions>
+            </Dialog>
         </>
     );
 };
 
-export default AddressSearchForm;
+export default withPortal(AddressSearchForm);
