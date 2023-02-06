@@ -11,7 +11,7 @@ import { useTheme } from '@/themes/theme';
 const styles = StyleSheet.create({
     root: {
         paddingHorizontal: 16,
-        elevation: 4,
+        //elevation: 4,
     },
     content: {
         alignItems: 'center',
@@ -64,7 +64,7 @@ const CepForm: React.FC<ICepFormProps> = ({
 
     return (
         <View style={[styles.root, { backgroundColor: colors.primary }]}>
-            <View style={styles.content}>
+            <View style={[styles.content, focus ? { elevation: 2, backgroundColor: colors.primary } : {}]}>
                 <TextInput
                     label="Insira um CEP para pesquisar"
                     keyboardType="numeric"
@@ -73,10 +73,10 @@ const CepForm: React.FC<ICepFormProps> = ({
                         dark: false,
                         roundness: 0,
                         colors: {
-                            primary: 'rgba(0,0,0,.6)',
-                            text: focus && !dark ? 'black' : 'white',
+                            primary: dark ? 'rgba(255,255,255,.6)' : 'white',
+                            text: 'white',
                             placeholder: 'rgba(255,255,255,.8)',
-                            background: colors.accent
+                            background: focus ? 'rgba(255,255,255,.12)' : colors.accent
                         }
                     }}
                     underlineColor="transparent"
@@ -91,7 +91,7 @@ const CepForm: React.FC<ICepFormProps> = ({
 
                 <IconButton
                     icon="search-web"
-                    iconColor={focus ? 'black' : 'white'}
+                    iconColor="white"
                     style={styles.iconButton}
                     size={28}
                     onPress={handleSubmit}

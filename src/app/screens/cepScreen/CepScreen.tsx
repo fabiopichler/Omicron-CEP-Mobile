@@ -39,11 +39,14 @@ const CepScreen: React.FC<ICepScreenProps> = ({
 
     return (
         <View style={[styles.root, { backgroundColor: colors.background }]}>
-            <AppHeader
-                title="Pesquisa por CEP"
-            />
+            <View style={{ elevation: 4, backgroundColor: colors.primary }}>
+                <AppHeader
+                    title="Pesquisa por CEP"
+                    noShadow
+                />
 
-            <CepForm setCurrentSearch={setCurrentSearch} />
+                <CepForm setCurrentSearch={setCurrentSearch} />
+            </View>
 
             {historyList.length === 0 && status === Status.Nothing ? (
                 <Info>
