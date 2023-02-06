@@ -1,7 +1,7 @@
 import React from 'react';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -21,6 +21,8 @@ const App: React.FC<IAppProps> = ({
     addressInitHistory,
 }) => {
 
+    const theme = darkModeEnabled ? darkTheme : defaultTheme;
+
     React.useEffect(() => {
         StatusBar.setTranslucent(true);
 
@@ -30,11 +32,8 @@ const App: React.FC<IAppProps> = ({
     }, []);
 
     React.useEffect(() => {
-        if (darkModeEnabled !== null) {
-            const theme = darkModeEnabled ? darkTheme : defaultTheme;
-
-            (changeNavigationBarColor as any)(theme.colors.primary, false, false);
-        }
+        if (darkModeEnabled !== null)
+            changeNavigationBarColor(theme.colors.primary, false, false);
     }, [darkModeEnabled]);
 
     if (darkModeEnabled === null)
@@ -43,9 +42,11 @@ const App: React.FC<IAppProps> = ({
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
             <PaperProvider
-                theme={darkModeEnabled ? darkTheme : defaultTheme}
+                theme={theme}
             >
-                <AppNavigator />
+                <View style={{ flex: 1, backgroundColor: theme.colors.primary }}>
+                    <AppNavigator />
+                </View>
             </PaperProvider>
         </GestureHandlerRootView>
     );
