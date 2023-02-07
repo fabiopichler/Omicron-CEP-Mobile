@@ -23,6 +23,13 @@ export const defaultTheme: ITheme = {
         card: {
             borderRadius: 0,
             elevation: 1,
-        }
+        },
+        cepForm: {
+            primary: 'rgb(60,70,90)',
+            text: 'white',
+            textFocus: 'black',
+            placeholder: 'rgba(255,255,255,.8)',
+            background: 'white',
+        },
     }
 };

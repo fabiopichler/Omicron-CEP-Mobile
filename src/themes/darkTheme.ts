@@ -25,6 +25,13 @@ export const darkTheme: ITheme = {
         card: {
             borderRadius: 0,
             elevation: 0,
-        }
+        },
+        cepForm: {
+            primary: 'rgba(255,255,255,.6)',
+            text: 'white',
+            textFocus: 'white',
+            placeholder: 'rgba(255,255,255,.8)',
+            background: '#2d2d2d',
+        },
     }
 };

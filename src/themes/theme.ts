@@ -13,8 +13,17 @@ export interface IThemeCustomColors {
     button: string;
 }
 
+export interface ICepFormStyle {
+    primary: string;
+    text: string;
+    textFocus: string;
+    placeholder: string;
+    background: string;
+}
+
 export interface IThemeCustomStyles {
     card: StyleProp<ViewStyle>;
+    cepForm: ICepFormStyle;
 }
 
 export interface ITheme extends MD2Theme {
@@ -22,4 +31,4 @@ export interface ITheme extends MD2Theme {
     customStyles: IThemeCustomStyles;
 }
 
-export const useTheme = () => <ITheme>useThemePaper();
+export const useTheme = () => useThemePaper<ITheme>();

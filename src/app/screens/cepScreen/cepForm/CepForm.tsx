@@ -35,7 +35,8 @@ const CepForm: React.FC<ICepFormProps> = ({
     setCurrentSearch,
 }) => {
 
-    const { dark, colors } = useTheme();
+    const { dark, colors, customStyles } = useTheme();
+    const cepFormStyle = customStyles.cepForm;
 
     const [cep, setCep] = React.useState('');
     const [focus, setFocus] = React.useState(false);
@@ -64,19 +65,19 @@ const CepForm: React.FC<ICepFormProps> = ({
 
     return (
         <View style={[styles.root, { backgroundColor: colors.primary }]}>
-            <View style={[styles.content, focus ? { elevation: 2, backgroundColor: colors.primary } : {}]}>
+            <View style={[styles.content, focus ? { elevation: 4, backgroundColor: colors.primary } : {}]}>
                 <TextInput
                     label="Insira um CEP para pesquisar"
                     keyboardType="numeric"
                     returnKeyType="search"
                     theme={{
-                        dark: false,
+                        dark,
                         roundness: 0,
                         colors: {
-                            primary: dark ? 'rgba(255,255,255,.6)' : 'white',
-                            text: 'white',
-                            placeholder: 'rgba(255,255,255,.8)',
-                            background: focus ? 'rgba(255,255,255,.12)' : colors.accent
+                            primary: cepFormStyle.primary,
+                            text: focus ? cepFormStyle.textFocus : cepFormStyle.text,
+                            placeholder: cepFormStyle.placeholder,
+                            background: focus ? cepFormStyle.background : colors.accent
                         }
                     }}
                     underlineColor="transparent"
@@ -91,7 +92,7 @@ const CepForm: React.FC<ICepFormProps> = ({
 
                 <IconButton
                     icon="search-web"
-                    iconColor="white"
+                    iconColor={focus ? cepFormStyle.textFocus : cepFormStyle.text}
                     style={styles.iconButton}
                     size={28}
                     onPress={handleSubmit}
