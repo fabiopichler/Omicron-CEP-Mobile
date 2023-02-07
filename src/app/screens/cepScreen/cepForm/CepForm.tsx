@@ -76,7 +76,7 @@ const CepForm: React.FC<ICepFormProps> = ({
                             primary: cepFormStyle.primary,
                             text: focus ? cepFormStyle.textFocus : cepFormStyle.text,
                             placeholder: cepFormStyle.placeholder,
-                            background: focus ? cepFormStyle.background : colors.accent
+                            background: focus ? cepFormStyle.backgroundFocus : cepFormStyle.background
                         }
                     }}
                     underlineColor="transparent"

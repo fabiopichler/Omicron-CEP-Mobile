@@ -31,7 +31,8 @@ export const darkTheme: ITheme = {
             text: 'white',
             textFocus: 'white',
             placeholder: 'rgba(255,255,255,.8)',
-            background: '#2d2d2d',
+            background: '#263859',
+            backgroundFocus: '#2d2d2d',
             roundness: 8,
         },
     }

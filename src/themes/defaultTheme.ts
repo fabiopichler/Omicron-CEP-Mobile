@@ -29,7 +29,8 @@ export const defaultTheme: ITheme = {
             text: 'white',
             textFocus: 'black',
             placeholder: 'rgba(255,255,255,.8)',
-            background: 'white',
+            background: '#139575',
+            backgroundFocus: 'white',
             roundness: 6,
         },
     }

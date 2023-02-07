@@ -19,6 +19,7 @@ export interface ICepFormStyle {
     textFocus: string;
     placeholder: string;
     background: string;
+    backgroundFocus: string;
     roundness: number;
 }
 
