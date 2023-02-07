@@ -35,8 +35,7 @@ const CepForm: React.FC<ICepFormProps> = ({
     setCurrentSearch,
 }) => {
 
-    const { dark, colors, customStyles } = useTheme();
-    const cepFormStyle = customStyles.cepForm;
+    const { dark, colors, customStyles: { cepForm: cepFormStyle } } = useTheme();
 
     const [cep, setCep] = React.useState('');
     const [focus, setFocus] = React.useState(false);
@@ -65,14 +64,14 @@ const CepForm: React.FC<ICepFormProps> = ({
 
     return (
         <View style={[styles.root, { backgroundColor: colors.primary }]}>
-            <View style={[styles.content, focus ? { elevation: 4, backgroundColor: colors.primary } : {}]}>
+            <View style={styles.content}>
                 <TextInput
                     label="Insira um CEP para pesquisar"
                     keyboardType="numeric"
                     returnKeyType="search"
                     theme={{
                         dark,
-                        roundness: 0,
+                        roundness: cepFormStyle.roundness,
                         colors: {
                             primary: cepFormStyle.primary,
                             text: focus ? cepFormStyle.textFocus : cepFormStyle.text,
@@ -82,7 +81,7 @@ const CepForm: React.FC<ICepFormProps> = ({
                     }}
                     underlineColor="transparent"
                     maxLength={9}
-                    style={styles.textInput}
+                    style={[styles.textInput, focus ? { elevation: 4 } : {}]}
                     value={cep}
                     onChangeText={handleTextChange}
                     onSubmitEditing={handleSubmit}

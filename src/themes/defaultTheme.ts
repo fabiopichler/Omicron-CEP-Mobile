@@ -21,7 +21,7 @@ export const defaultTheme: ITheme = {
     },
     customStyles: {
         card: {
-            borderRadius: 0,
+            borderRadius: 6,
             elevation: 1,
         },
         cepForm: {
@@ -30,6 +30,7 @@ export const defaultTheme: ITheme = {
             textFocus: 'black',
             placeholder: 'rgba(255,255,255,.8)',
             background: 'white',
+            roundness: 6,
         },
     }
 };
